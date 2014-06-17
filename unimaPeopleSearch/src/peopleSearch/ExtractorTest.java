@@ -32,7 +32,7 @@ public class ExtractorTest {
 		// Document doc = Jsoup.connect(url).get();
 		// doc.outputSettings().charset("UTF-8");
 		
-		ArrayList<Person> persons = new ArrayList<Person>();
+		ArrayList<Person> persons = new ArrayList<Person>(); 
 		List<File> files = Arrays.asList(new File("data/pages").listFiles());
 		
 		for(File file: files) {
@@ -63,9 +63,12 @@ public class ExtractorTest {
 			if (p.isPerson()) cPerson++;
 			if (p.getFirstNames().length()>1) cFN++;
 			if (p.getLastName().length()>1) cLN++;
+			if (p.getTitles() != null && p.getTitles().length()>1) cTitle++;
 			if (p.getEmail() != null && p.getEmail().length()>1) cEmail++;
 			if (p.getPhoneNumber() != null && p.getPhoneNumber().length()>1) cPhone++;
+			if (p.getLocation_zip() != null && p.getLocation_zip().length()>1) cZip++;
 			if (p.getLocation_room() != null && p.getLocation_room().length()>1) cRoom++;
+			if (p.getLocation_street() != null && p.getLocation_street().length()>1) cStreet++;
 			if (p.getImageUrl() != null && p.getImageUrl().length()>1) cImage++;
 		}
 		
@@ -74,8 +77,11 @@ public class ExtractorTest {
 		System.out.println("Found persons: " + (double) cPerson/persons.size());
 		System.out.println("First names: " + (double) cFN/persons.size());
 		System.out.println("Last names: " + (double) cLN/persons.size());
+		System.out.println("Titles: " + (double) cTitle/persons.size());
 		System.out.println("Emails: " + (double) cEmail/persons.size());
 		System.out.println("Phones: " + (double) cPhone/persons.size());
+		System.out.println("ZIPs: " + (double) cZip/persons.size());
+		System.out.println("Streets: " + (double) cStreet/persons.size());
 		System.out.println("Rooms: " + (double) cRoom/persons.size());
 		System.out.println("Images: " + (double) cImage/persons.size());
 		

@@ -24,6 +24,7 @@ public class ExtractorTest {
 	 * @param args
 	 * @throws IOException
 	 */
+	@SuppressWarnings("deprecation")
 	public static void main(String[] args) throws IOException {
 		// String url =
 		// "http://dws.informatik.uni-mannheim.de/en/people/professors/prof-dr-simone-paolo-ponzetto/";
@@ -33,7 +34,7 @@ public class ExtractorTest {
 		// doc.outputSettings().charset("UTF-8");
 		
 		ArrayList<Person> persons = new ArrayList<Person>(); 
-		List<File> files = Arrays.asList(new File("data/pages").listFiles());
+		/*List<File> files = Arrays.asList(new File("data/pages").listFiles());
 		
 		for(File file: files) {
 			System.out.println(file.getAbsolutePath());
@@ -43,6 +44,21 @@ public class ExtractorTest {
 			Person newPerson = new Person();
 			newPerson.tryExtract(input, "http://example.com");
 			persons.add(newPerson);
+		}*/
+		HtmlExtractor ex = new HtmlExtractor();
+		ArrayList<String> list = ex.readLinks();
+		File file;
+		
+		for(String s : list){
+			ex.downloadPage(s);
+			file = new File("temp.html");
+			String input = Resources.toString(file .toURL(), Charsets.UTF_8);
+			input = input.replaceAll("(?i)<br[^>]*>", "br2n");
+			Person newPerson = new Person();
+			newPerson.tryExtract(input, "http://example.com");
+			if(file.exists()){
+				file.delete();
+			}
 		}
 		
 		int cPerson = 0;

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<dataConfig>  
+  
+<dataSource type="JdbcDataSource" driver="com.mysql.jdbc.Driver" url="jdbc:mysql://localhost:3306/peoplesearch" user="root" password="abc" batchSize="1" />  
+    <document name="persons">  
+  
+        <entity name="person_data" query="SELECT * FROM Person">  
+            <field column="person_id" name="id" />  
+            <field column="first_Names" name="firstNames " /> 
+            <field column="last_Names" name="lastName " />   
+        </entity>  
+  
+    </document>  
+</dataConfig>  

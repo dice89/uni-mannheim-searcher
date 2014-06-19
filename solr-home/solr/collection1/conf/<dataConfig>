@@ -1,0 +1,14 @@
+<dataConfig>  
+  
+<dataSource type="JdbcDataSource" driver="com.mysql.jdbc.Driver" url="jdbc:mysql://localhost:3306/indian_team" user="root" password="root" batchSize="1" />  
+    <document name="players">  
+  
+        <entity name="players_data" query="SELECT * FROM players_data">  
+            <field column="player_id" name="id" />  
+            <field column="player_name" name="player_name" />  
+<field column="player_age" name="player_age" />  
+<field column="player_description" name="player_description" />  
+        </entity>  
+  
+    </document>  
+</dataConfig>  

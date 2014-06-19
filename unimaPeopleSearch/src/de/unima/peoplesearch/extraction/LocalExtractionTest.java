@@ -38,7 +38,7 @@ public class LocalExtractionTest {
 		for(File file: files) {
 			System.out.println(file.getAbsolutePath());
 			String input = Resources.toString(file.toURL(), Charsets.UTF_8);
-			input = input.replaceAll("(?i)<br[^>]*>", "br2n");
+			input = input.replaceAll("(?i)<br[^>]*>", Person.BR_TAG);
 			// System.out.println(input);
 			Person newPerson = new Person();
 			newPerson.tryExtract(input, "http://example.com");

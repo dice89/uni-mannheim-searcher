@@ -33,6 +33,9 @@ public class Person {
 																										// only!
 	public static final Pattern OFFICE_REGEX = Pattern.compile(
 			"(room|raum|zimmer|zi\\.).*\\s[A-Z]?[0-9]{1,4}(\\.[0-9]{1,3})?", Pattern.CASE_INSENSITIVE);
+	
+	
+	public static final String BR_TAG = "br2n";
 
 	private String label = "";
 	private String firstNames = "";
@@ -62,9 +65,12 @@ public class Person {
 		Elements headings = content.select("h1, h2, h3");
 		for (int i = 0; i < headings.size(); i++) {
 			if (headings.get(i).text().split(" ").length > 1) {
-//				System.err.println(headings.get(i).text());
-				this.testForName(headings.get(i).text());
-				if (this.label.length() <1)this.label = headings.get(i).ownText();
+				String text = headings.get(i).text().replace(Person.BR_TAG, "");
+				// System.err.println(headings.get(i).text());
+				this.testForName(text);
+				if (this.label.length() < 1)
+					this.label = text.trim();
+				
 				break;
 			}
 		}
@@ -80,7 +86,8 @@ public class Person {
 
 				String relHref = element.attr("href");
 				if (relHref.toLowerCase().startsWith("mailto")) {
-//					System.err.println(relHref.split(":")[1].replace(" ", ""));
+					// System.err.println(relHref.split(":")[1].replace(" ",
+					// ""));
 					this.email = relHref.split(":")[1].replace(" ", "");
 				}
 			}
@@ -95,7 +102,7 @@ public class Person {
 				// //Try matching zip code + city
 				m = PLZ_MANNHEIM_REGEX.matcher(p[i]);
 				if (m.find()) {
-//					System.err.println(m.group());
+					// System.err.println(m.group());
 					if (this.location_zip == null)
 						this.location_zip = m.group();
 				}
@@ -103,7 +110,7 @@ public class Person {
 				// //Try matching street
 				m = STREET_REGEX.matcher(p[i]);
 				if (m.find()) {
-//					System.err.println(m.group());
+					// System.err.println(m.group());
 					if (this.location_street == null)
 						this.location_street = m.group();
 				}
@@ -111,7 +118,7 @@ public class Person {
 				// Try extract office room
 				m = OFFICE_REGEX.matcher(p[i]);
 				if (m.find()) {
-//					System.err.println(m.group());
+					// System.err.println(m.group());
 					if (this.location_room == null)
 						this.location_room = m.group();
 				}
@@ -119,7 +126,7 @@ public class Person {
 				// Try extract phone numbers
 				m = PHONE_REGEX.matcher(p[i]);
 				if (m.find()) {
-//					System.err.println(m.group());
+					// System.err.println(m.group());
 					if (this.phoneNumber == null)
 						this.phoneNumber = m.group();
 				}
@@ -127,7 +134,7 @@ public class Person {
 				// Try extract email from text
 				m = EMAIL_REGEX.matcher(p[i]);
 				if (m.find()) {
-//					System.err.println(m.group());
+					// System.err.println(m.group());
 					if (this.email == null)
 						this.email = m.group();
 				}
@@ -140,7 +147,7 @@ public class Person {
 		// Try extract image
 		Elements imgTags = content.select("img");
 		for (Element imgTag : imgTags) {
-//			System.err.println(imgTag.attr("abs:src"));
+			// System.err.println(imgTag.attr("abs:src"));
 			try {
 				if (Integer.parseInt(imgTag.attr("width")) > 50) // Ignore icons
 					this.imageUrl = imgTag.attr("abs:src");
@@ -149,17 +156,17 @@ public class Person {
 				// e.printStackTrace();
 			}
 		}
-		
+
 		this.sanitizeFields();
 	}
 
 	private void sanitizeFields() {
-		if (email!=null) {
+		if (email != null) {
 			this.email = this.email.replace("AT", "@");
 			this.email = this.email.toLowerCase().replace(" ", "");
 			this.email = this.email.replace("[at]", "@").replace("(at)", "@").replace("{at}", "@");
 		}
-		
+
 	}
 
 	private void testForName(String text) {
@@ -168,18 +175,21 @@ public class Person {
 
 		// Set names if not already set
 		for (int i = 0; i < parts.length; i++) {
-			if (parts[i].startsWith("(")) continue;
+			if (parts[i].startsWith("("))
+				continue;
 			if (parts[i].endsWith("."))
 				this.titles += parts[i] + " ";
-			else names += parts[i]+" ";
+			else
+				names += parts[i] + " ";
 		}
-		
+
 		String[] nameParts = names.split(" ");
 		if (nameParts.length > 1) {
-			this.lastName = nameParts[nameParts.length-1];
-			for (int i = 0; i < nameParts.length-1; i++) {
-				if (nameParts[i].startsWith("(")) continue;
-				this.firstNames += nameParts[i]+" "; 
+			this.lastName = nameParts[nameParts.length - 1];
+			for (int i = 0; i < nameParts.length - 1; i++) {
+				if (nameParts[i].startsWith("("))
+					continue;
+				this.firstNames += nameParts[i] + " ";
 			}
 		}
 
@@ -188,10 +198,9 @@ public class Person {
 		this.lastName = this.lastName.replace(",", "").trim();
 
 	}
-	
+
 	public boolean isPerson() {
-		return this.firstNames.length() >1 && this.lastName.length() >1
-				&& (this.phoneNumber != null);
+		return this.firstNames.length() > 1 && this.lastName.length() > 1 && (this.phoneNumber != null);
 	}
 
 	@Override
@@ -201,12 +210,10 @@ public class Person {
 				+ "\n location_room= " + location_room + "\n phoneNumber= " + phoneNumber + "\n imageUrl= " + imageUrl
 				+ "\n email= " + email + "\n";
 	}
-	
+
 	public String toCSV() {
-		return label + ";" + firstNames + ";" + lastName + ";"
-				+ titles + ";" + location_zip + ";" + location_street
-				+ ";" + location_room + ";" + phoneNumber + ";" + imageUrl
-				+ ";" + email + "\n";
+		return label + ";" + firstNames + ";" + lastName + ";" + titles + ";" + location_zip + ";" + location_street
+				+ ";" + location_room + ";" + phoneNumber + ";" + imageUrl + ";" + email + "\n";
 	}
 
 	/**
@@ -282,8 +289,12 @@ public class Person {
 	public String getUrl() {
 		return url;
 	}
-	
-	
-	
+
+	/**
+	 * @param url the url to set
+	 */
+	public void setUrl(String url) {
+		this.url = url;
+	}
 
 }

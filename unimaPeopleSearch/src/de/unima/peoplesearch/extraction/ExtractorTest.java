@@ -6,6 +6,7 @@ package de.unima.peoplesearch.extraction;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.net.*;
 
 import org.jsoup.Jsoup;
 
@@ -51,9 +52,12 @@ public class ExtractorTest {
 				String input = Jsoup.connect(s).ignoreContentType(true).ignoreHttpErrors(true).timeout(1000).get().toString();
 				input = input.replaceAll("(?i)<br[^>]*>", " br2n ");
 				Person newPerson = new Person();
-				newPerson.tryExtract(input, "http://example.com");
-				if (newPerson.isPerson())
+//				System.err.println( new URL(s).getHost());
+				newPerson.tryExtract(input, "");
+				if (newPerson.isPerson()) {
+					newPerson.setUrl(s);
 					persons.add(newPerson);
+				}
 			} catch (Exception e) {
 				timeoutCounter++;
 				e.printStackTrace();

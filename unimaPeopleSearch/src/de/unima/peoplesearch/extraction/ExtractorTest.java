@@ -101,7 +101,7 @@ public class ExtractorTest {
 
 		System.out.println("Some stats:");
 		System.out.println("Total pages vistited: " + counter);
-		System.out.println("Found persons-%: " + (double) cPerson/ persons.size());
+		System.out.println("Found persons: " + persons.size());
 		System.out.println("Timouts: " + timeoutCounter);
 		System.out.println("###########");
 		System.out.println("First names-%: " + (double) cFN / persons.size());

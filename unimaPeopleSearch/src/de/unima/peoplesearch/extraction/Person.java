@@ -44,6 +44,7 @@ public class Person {
 	private String phoneNumber;
 	private String imageUrl;
 	private String email;
+	private String url;
 
 	public void tryExtract(String input, String baseUrl) {
 
@@ -276,6 +277,10 @@ public class Person {
 	 */
 	public String getEmail() {
 		return email;
+	}
+
+	public String getUrl() {
+		return url;
 	}
 	
 	

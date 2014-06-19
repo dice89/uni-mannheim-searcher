@@ -190,6 +190,17 @@ public class Person {
 				// e.printStackTrace();
 			}
 		}
+		
+		this.sanitizeFields();
+	}
+
+	private void sanitizeFields() {
+		if (email!=null) {
+			this.email = this.email.replace("AT", "@");
+			this.email = this.email.toLowerCase().replace(" ", "");
+			this.email = this.email.replace("[at]", "@").replace("(at)", "@").replace("{at}", "@");
+		}
+		
 	}
 
 	private void testForName(String text) {
@@ -226,10 +237,10 @@ public class Person {
 
 	@Override
 	public String toString() {
-		return "Person [label=" + label + "\n firstNames=" + firstNames + "\n lastName=" + lastName + "\n titles="
-				+ titles + "\n location_zip=" + location_zip + "\n location_street=" + location_street
-				+ "\n location_room=" + location_room + "\n phoneNumber=" + phoneNumber + "\n imageUrl=" + imageUrl
-				+ "\n email=" + email + "\n";
+		return "Person [label= " + label + "\n firstNames= " + firstNames + "\n lastName= " + lastName + "\n titles= "
+				+ titles + "\n location_zip= " + location_zip + "\n location_street= " + location_street
+				+ "\n location_room= " + location_room + "\n phoneNumber= " + phoneNumber + "\n imageUrl= " + imageUrl
+				+ "\n email= " + email + "\n";
 	}
 
 	/**

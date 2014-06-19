@@ -6,11 +6,6 @@ package de.unima.peoplesearch.extraction;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
-
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
@@ -18,11 +13,9 @@ import org.jsoup.nodes.Entities.EscapeMode;
 import org.jsoup.select.Elements;
 
 /**
- * @author Michi,Alex
+ * @author Michi
  * 
  */
-@Entity
-@Table
 public class Person {
 
 	public static final Pattern EMAIL_REGEX = Pattern.compile(
@@ -30,7 +23,7 @@ public class Person {
 			Pattern.CASE_INSENSITIVE);// (\\(at\\))?
 
 	public static final Pattern PHONE_REGEX = Pattern
-			.compile("(\\+[0-9]{2,3})?[-.?????????/\\s]{0,3}(\\(0\\)[-.?????????/\\s]{0,3})?\\(?([0-9]{3,4})\\)?[-.?????????/\\s]{0,3}([0-9]{3,4})[-.?????????/\\s]{0,3}([0-9]{4})");
+			.compile("(\\+[0-9]{2,3})?[-–/\\s]{0,3}(\\(0\\)[-–/\\s]{0,3})?\\(?([0-9]{3,4})\\)?[-–/\\s]{0,3}([0-9]{3,4})[-–/\\s]{0,3}([0-9]{4})");
 
 	public static final Pattern PLZ_MANNHEIM_REGEX = Pattern.compile("[0-9]{5} Mannheim");
 	public static final Pattern STREET_REGEX = Pattern.compile("[A-U]\\s?[0-9]{1,2}([,\\s]+[0-9]+)?");// Currently
@@ -41,15 +34,6 @@ public class Person {
 	public static final Pattern OFFICE_REGEX = Pattern.compile(
 			"(room|raum|zimmer|zi\\.).*\\s[A-Z]?[0-9]{1,4}(\\.[0-9]{1,3})?", Pattern.CASE_INSENSITIVE);
 
-	
-	// Parameter used for JPA Handling
-	
-	
-	@Id  
-	@GeneratedValue  
-	private Integer id;  
-	
-	
 	private String label = "";
 	private String firstNames = "";
 	private String lastName = "";
@@ -60,32 +44,6 @@ public class Person {
 	private String phoneNumber;
 	private String imageUrl;
 	private String email;
-	
-	
-	//private Empty Constructor for JPA
-	public Person(){
-		
-	}
-
-	
-	public Person(Integer id, String label, String firstNames, String lastName,
-			String titles, String location_zip, String location_street,
-			String location_room, String phoneNumber, String imageUrl,
-			String email) {
-		super();
-		this.id = id;
-		this.label = label;
-		this.firstNames = firstNames;
-		this.lastName = lastName;
-		this.titles = titles;
-		this.location_zip = location_zip;
-		this.location_street = location_street;
-		this.location_room = location_room;
-		this.phoneNumber = phoneNumber;
-		this.imageUrl = imageUrl;
-		this.email = email;
-	}
-
 
 	public void tryExtract(String input, String baseUrl) {
 
@@ -103,7 +61,7 @@ public class Person {
 		Elements headings = content.select("h1, h2, h3");
 		for (int i = 0; i < headings.size(); i++) {
 			if (headings.get(i).text().split(" ").length > 1) {
-				System.err.println(headings.get(i).text());
+//				System.err.println(headings.get(i).text());
 				this.testForName(headings.get(i).text());
 				if (this.label.length() <1)this.label = headings.get(i).ownText();
 				break;
@@ -121,7 +79,7 @@ public class Person {
 
 				String relHref = element.attr("href");
 				if (relHref.toLowerCase().startsWith("mailto")) {
-					System.err.println(relHref.split(":")[1].replace(" ", ""));
+//					System.err.println(relHref.split(":")[1].replace(" ", ""));
 					this.email = relHref.split(":")[1].replace(" ", "");
 				}
 			}
@@ -136,7 +94,7 @@ public class Person {
 				// //Try matching zip code + city
 				m = PLZ_MANNHEIM_REGEX.matcher(p[i]);
 				if (m.find()) {
-					System.err.println(m.group());
+//					System.err.println(m.group());
 					if (this.location_zip == null)
 						this.location_zip = m.group();
 				}
@@ -144,7 +102,7 @@ public class Person {
 				// //Try matching street
 				m = STREET_REGEX.matcher(p[i]);
 				if (m.find()) {
-					System.err.println(m.group());
+//					System.err.println(m.group());
 					if (this.location_street == null)
 						this.location_street = m.group();
 				}
@@ -152,7 +110,7 @@ public class Person {
 				// Try extract office room
 				m = OFFICE_REGEX.matcher(p[i]);
 				if (m.find()) {
-					System.err.println(m.group());
+//					System.err.println(m.group());
 					if (this.location_room == null)
 						this.location_room = m.group();
 				}
@@ -160,7 +118,7 @@ public class Person {
 				// Try extract phone numbers
 				m = PHONE_REGEX.matcher(p[i]);
 				if (m.find()) {
-					System.err.println(m.group());
+//					System.err.println(m.group());
 					if (this.phoneNumber == null)
 						this.phoneNumber = m.group();
 				}
@@ -168,7 +126,7 @@ public class Person {
 				// Try extract email from text
 				m = EMAIL_REGEX.matcher(p[i]);
 				if (m.find()) {
-					System.err.println(m.group());
+//					System.err.println(m.group());
 					if (this.email == null)
 						this.email = m.group();
 				}
@@ -181,7 +139,7 @@ public class Person {
 		// Try extract image
 		Elements imgTags = content.select("img");
 		for (Element imgTag : imgTags) {
-			System.err.println(imgTag.attr("abs:src"));
+//			System.err.println(imgTag.attr("abs:src"));
 			try {
 				if (Integer.parseInt(imgTag.attr("width")) > 50) // Ignore icons
 					this.imageUrl = imgTag.attr("abs:src");
@@ -232,7 +190,7 @@ public class Person {
 	
 	public boolean isPerson() {
 		return this.firstNames.length() >1 && this.lastName.length() >1
-				&& (this.phoneNumber != null || this.email != null);
+				&& (this.phoneNumber != null);
 	}
 
 	@Override
@@ -241,6 +199,13 @@ public class Person {
 				+ titles + "\n location_zip= " + location_zip + "\n location_street= " + location_street
 				+ "\n location_room= " + location_room + "\n phoneNumber= " + phoneNumber + "\n imageUrl= " + imageUrl
 				+ "\n email= " + email + "\n";
+	}
+	
+	public String toCSV() {
+		return label + ";" + firstNames + ";" + lastName + ";"
+				+ titles + ";" + location_zip + ";" + location_street
+				+ ";" + location_room + ";" + phoneNumber + ";" + imageUrl
+				+ ";" + email + "\n";
 	}
 
 	/**
@@ -311,54 +276,6 @@ public class Person {
 	 */
 	public String getEmail() {
 		return email;
-	}
-
-	public void setId(Integer id) {
-		this.id = id;
-	}
-
-	public void setLabel(String label) {
-		this.label = label;
-	}
-
-	public void setFirstNames(String firstNames) {
-		this.firstNames = firstNames;
-	}
-
-	public void setLastName(String lastName) {
-		this.lastName = lastName;
-	}
-
-	public void setTitles(String titles) {
-		this.titles = titles;
-	}
-
-	public void setLocation_zip(String location_zip) {
-		this.location_zip = location_zip;
-	}
-
-	public void setLocation_street(String location_street) {
-		this.location_street = location_street;
-	}
-
-	public void setLocation_room(String location_room) {
-		this.location_room = location_room;
-	}
-
-	public void setPhoneNumber(String phoneNumber) {
-		this.phoneNumber = phoneNumber;
-	}
-
-	public void setImageUrl(String imageUrl) {
-		this.imageUrl = imageUrl;
-	}
-
-	public void setEmail(String email) {
-		this.email = email;
-	}
-
-	public Integer getId() {
-		return id;
 	}
 	
 	

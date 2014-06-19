@@ -6,23 +6,14 @@ package de.unima.peoplesearch.extraction;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 
-import peopleSearch.HtmlExtractor;
-
-import com.google.common.base.Charsets;
-import com.google.common.io.Resources;
-
-import de.unima.peoplesearch.database.PersonDAO;
+import org.jsoup.Jsoup;
 
 /**
  * @author Michi
  * 
  */
 public class ExtractorTest {
-
-
 
 	/**
 	 * @param args
@@ -36,38 +27,39 @@ public class ExtractorTest {
 		// url);
 		// Document doc = Jsoup.connect(url).get();
 		// doc.outputSettings().charset("UTF-8");
-		
-		ArrayList<Person> persons = new ArrayList<Person>(); 
-		/*List<File> files = Arrays.asList(new File("data/pages").listFiles());
-		
-		for(File file: files) {
-			System.out.println(file.getAbsolutePath());
-			String input = Resources.toString(file.toURL(), Charsets.UTF_8);
-			input = input.replaceAll("(?i)<br[^>]*>", "br2n");
-			// System.out.println(input);
-			Person newPerson = new Person();
-			newPerson.tryExtract(input, "http://example.com");
-			persons.add(newPerson);
 
-			PersonDAO.savePerson(newPerson);
-		}*/
+		ArrayList<Person> persons = new ArrayList<Person>();
+		/*
+		 * List<File> files = Arrays.asList(new File("data/pages").listFiles());
+		 * 
+		 * for(File file: files) { System.out.println(file.getAbsolutePath());
+		 * String input = Resources.toString(file.toURL(), Charsets.UTF_8);
+		 * input = input.replaceAll("(?i)<br[^>]*>", "br2n"); //
+		 * System.out.println(input); Person newPerson = new Person();
+		 * newPerson.tryExtract(input, "http://example.com");
+		 * persons.add(newPerson); }
+		 */
 		HtmlExtractor ex = new HtmlExtractor();
 		ArrayList<String> list = ex.readLinks();
-		File file;
-		
-		for(String s : list){
-			ex.downloadPage(s);
-			file = new File("temp.html");
-			String input = Resources.toString(file .toURL(), Charsets.UTF_8);
-			input = input.replaceAll("(?i)<br[^>]*>", "br2n");
-			Person newPerson = new Person();
-			newPerson.tryExtract(input, "http://example.com");
-			PersonDAO.savePerson(newPerson);
-			if(file.exists()){
-				file.delete();
+		final int MAX = 1000;
+		int counter = 1;
+		int timeoutCounter = 0;
+		for (String s : list) {
+			try {
+				if (counter >= MAX) break;
+				System.out.println("GET " + counter++ + " " + s);
+				String input = Jsoup.connect(s).ignoreContentType(true).ignoreHttpErrors(true).timeout(1000).get().toString();
+				input = input.replaceAll("(?i)<br[^>]*>", " br2n ");
+				Person newPerson = new Person();
+				newPerson.tryExtract(input, "http://example.com");
+				if (newPerson.isPerson())
+					persons.add(newPerson);
+			} catch (Exception e) {
+				timeoutCounter++;
+				e.printStackTrace();
 			}
 		}
-		
+
 		int cPerson = 0;
 		int cFN = 0;
 		int cLN = 0;
@@ -78,55 +70,67 @@ public class ExtractorTest {
 		int cRoom = 0;
 		int cPhone = 0;
 		int cImage = 0;
-		
-		//Output
-		System.out.println("Extracted people information: ");
-		for(Person p: persons) {
-			System.out.println(p);
-			if (p.isPerson()) cPerson++;
-			if (p.getFirstNames().length()>1) cFN++;
-			if (p.getLastName().length()>1) cLN++;
-			if (p.getTitles() != null && p.getTitles().length()>1) cTitle++;
-			if (p.getEmail() != null && p.getEmail().length()>1) cEmail++;
-			if (p.getPhoneNumber() != null && p.getPhoneNumber().length()>1) cPhone++;
-			if (p.getLocation_zip() != null && p.getLocation_zip().length()>1) cZip++;
-			if (p.getLocation_room() != null && p.getLocation_room().length()>1) cRoom++;
-			if (p.getLocation_street() != null && p.getLocation_street().length()>1) cStreet++;
-			if (p.getImageUrl() != null && p.getImageUrl().length()>1) cImage++;
-		}
-		
-		System.out.println("Some stats:");
-		System.out.println("Total pages: " + persons.size());
-		System.out.println("Found persons: " + (double) cPerson/persons.size());
-		System.out.println("First names: " + (double) cFN/persons.size());
-		System.out.println("Last names: " + (double) cLN/persons.size());
-		System.out.println("Titles: " + (double) cTitle/persons.size());
-		System.out.println("Emails: " + (double) cEmail/persons.size());
-		System.out.println("Phones: " + (double) cPhone/persons.size());
-		System.out.println("ZIPs: " + (double) cZip/persons.size());
-		System.out.println("Streets: " + (double) cStreet/persons.size());
-		System.out.println("Rooms: " + (double) cRoom/persons.size());
-		System.out.println("Images: " + (double) cImage/persons.size());
-		
 
+		// Output
+		System.out.println("Extracted people information: ");
+		for (Person p : persons) {
+			System.out.println(p);
+			if (p.isPerson())
+				cPerson++;
+			if (p.getFirstNames().length() > 1)
+				cFN++;
+			if (p.getLastName().length() > 1)
+				cLN++;
+			if (p.getTitles() != null && p.getTitles().length() > 1)
+				cTitle++;
+			if (p.getEmail() != null && p.getEmail().length() > 1)
+				cEmail++;
+			if (p.getPhoneNumber() != null && p.getPhoneNumber().length() > 1)
+				cPhone++;
+			if (p.getLocation_zip() != null && p.getLocation_zip().length() > 1)
+				cZip++;
+			if (p.getLocation_room() != null
+					&& p.getLocation_room().length() > 1)
+				cRoom++;
+			if (p.getLocation_street() != null
+					&& p.getLocation_street().length() > 1)
+				cStreet++;
+			if (p.getImageUrl() != null && p.getImageUrl().length() > 1)
+				cImage++;
+		}
+
+		System.out.println("Some stats:");
+		System.out.println("Total pages vistited: " + counter);
+		System.out.println("Found persons-%: " + (double) cPerson/ persons.size());
+		System.out.println("Timouts: " + timeoutCounter);
+		System.out.println("###########");
+		System.out.println("First names-%: " + (double) cFN / persons.size());
+		System.out.println("Last names-%: " + (double) cLN / persons.size());
+		System.out.println("Titles-%: " + (double) cTitle / persons.size());
+		System.out.println("Emails-%: " + (double) cEmail / persons.size());
+		System.out.println("Phones-%: " + (double) cPhone / persons.size());
+		System.out.println("ZIPs-%: " + (double) cZip / persons.size());
+		System.out.println("Streets-%: " + (double) cStreet / persons.size());
+		System.out.println("Rooms-%: " + (double) cRoom / persons.size());
+		System.out.println("Images-%: " + (double) cImage / persons.size());
 
 	}
-	
-	
-	public static ArrayList<String> findFiles(String rootPath, String ending){
+
+	public static ArrayList<String> findFiles(String rootPath, String ending) {
 		ArrayList<String> result = new ArrayList<String>();
-	    File[] domains = new File(rootPath).listFiles();
-	    for (File domain : domains) {
-	        if (domain.isDirectory()) {
-	            File[] files = new File(domain.getAbsolutePath()).listFiles();
-	            for (File file : files) {
-	                if (file.isFile() && file.getAbsolutePath().endsWith(ending)) {
-	                    result.add(file.getAbsolutePath());
-	                }
-	            }
-	        }
-	    }
+		File[] domains = new File(rootPath).listFiles();
+		for (File domain : domains) {
+			if (domain.isDirectory()) {
+				File[] files = new File(domain.getAbsolutePath()).listFiles();
+				for (File file : files) {
+					if (file.isFile()
+							&& file.getAbsolutePath().endsWith(ending)) {
+						result.add(file.getAbsolutePath());
+					}
+				}
+			}
+		}
 		return result;
-    }
+	}
 
 }

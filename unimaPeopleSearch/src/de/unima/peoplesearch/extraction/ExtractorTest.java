@@ -53,7 +53,7 @@ public class ExtractorTest {
 				input = input.replaceAll("(?i)<br[^>]*>", " br2n ");
 				Person newPerson = new Person();
 //				System.err.println( new URL(s).getHost());
-				newPerson.tryExtract(input, "");
+				newPerson.tryExtract(input, "");//TODO:Base url for relative paths
 				if (newPerson.isPerson()) {
 					newPerson.setUrl(s);
 					persons.add(newPerson);

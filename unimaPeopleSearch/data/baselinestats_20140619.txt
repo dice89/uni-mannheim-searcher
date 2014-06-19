@@ -1,0 +1,12 @@
+Some stats:
+Total pages: 15
+Found persons: 0.8666666666666667
+First names: 0.9333333333333333
+Last names: 0.9333333333333333
+Titles: 0.6
+Emails: 0.8
+Phones: 0.8666666666666667
+ZIPs: 0.6
+Streets: 0.7333333333333333
+Rooms: 0.8
+Images: 0.7333333333333333

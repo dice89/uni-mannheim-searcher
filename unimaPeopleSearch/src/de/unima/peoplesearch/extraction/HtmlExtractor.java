@@ -43,18 +43,18 @@ public class HtmlExtractor {
 	return links;
 	}
 	
-	public void downloadPage(String link){
-		try {
-			System.out.println(link);
-			String html = Jsoup.connect(link).ignoreContentType(true).ignoreHttpErrors(true).timeout(10*1000).get().toString();
-			BufferedWriter writer = null;
-			writer = new BufferedWriter(new FileWriter("temp.html"));
-			writer.write(html);
-	        if ( writer != null) {
-		        writer.close( );
-	        }
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-	}
+//	public void downloadPage(String link){
+//		try {
+//			System.out.println(link);
+//			String html = Jsoup.connect(link).ignoreContentType(true).ignoreHttpErrors(true).timeout(10*1000).get().toString();
+//			BufferedWriter writer = null;
+//			writer = new BufferedWriter(new FileWriter("temp.html"));
+//			writer.write(html);
+//	        if ( writer != null) {
+//		        writer.close( );
+//	        }
+//		} catch (IOException e) {
+//			e.printStackTrace();
+//		}
+//	}
 }

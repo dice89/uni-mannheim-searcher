@@ -51,7 +51,6 @@ public class Person {
 
 	public void tryExtract(String input, String baseUrl) {
 
-		// TODO:Change base url
 		Document doc = Jsoup.parse(input, baseUrl);
 
 		doc.outputSettings().charset("ISO-8859-1");
@@ -150,7 +149,9 @@ public class Person {
 			// System.err.println(imgTag.attr("abs:src"));
 			try {
 				if (Integer.parseInt(imgTag.attr("width")) > 50) // Ignore icons
-					this.imageUrl = imgTag.attr("abs:src");
+					if (imgTag.attr("src").startsWith("http://")) {
+						this.imageUrl = imgTag.attr("src");
+					} else {this.imageUrl = baseUrl + imgTag.attr("src");}
 
 			} catch (NumberFormatException e) {
 				// e.printStackTrace();

@@ -6,6 +6,11 @@ package de.unima.peoplesearch.extraction;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
@@ -13,9 +18,11 @@ import org.jsoup.nodes.Entities.EscapeMode;
 import org.jsoup.select.Elements;
 
 /**
- * @author Michi
+ * @author Michi, Alexander, Maxim
  * 
  */
+@Entity
+@Table
 public class Person {
 
 	public static final Pattern EMAIL_REGEX = Pattern.compile(
@@ -36,6 +43,11 @@ public class Person {
 	
 	
 	public static final String BR_TAG = "br2n";
+	
+
+	@Id  
+	@GeneratedValue  
+	private Integer id; 
 
 	private String label = "";
 	private String firstNames = "";
@@ -48,6 +60,34 @@ public class Person {
 	private String imageUrl;
 	private String email;
 	private String url;
+	
+
+	//private Empty Constructor for JPA
+	public Person(){
+
+	}
+	
+	
+
+	public Person(String label, String firstNames, String lastName,
+			String titles, String location_zip, String location_street,
+			String location_room, String phoneNumber, String imageUrl,
+			String email, String url) {
+		super();
+		this.label = label;
+		this.firstNames = firstNames;
+		this.lastName = lastName;
+		this.titles = titles;
+		this.location_zip = location_zip;
+		this.location_street = location_street;
+		this.location_room = location_room;
+		this.phoneNumber = phoneNumber;
+		this.imageUrl = imageUrl;
+		this.email = email;
+		this.url = url;
+	}
+
+
 
 	public void tryExtract(String input, String baseUrl) {
 

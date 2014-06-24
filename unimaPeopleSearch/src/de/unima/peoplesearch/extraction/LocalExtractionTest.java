@@ -12,6 +12,8 @@ import java.util.List;
 import com.google.common.base.Charsets;
 import com.google.common.io.Resources;
 
+import de.unima.peoplesearch.database.PersonDAO;
+
 /**
  * @author Michi
  * 
@@ -38,10 +40,11 @@ public class LocalExtractionTest {
 		for(File file: files) {
 			System.out.println(file.getAbsolutePath());
 			String input = Resources.toString(file.toURL(), Charsets.UTF_8);
-			input = input.replaceAll("(?i)<br[^>]*>", "br2n");
+			input = input.replaceAll("(?i)<br[^>]*>", Person.BR_TAG);
 			// System.out.println(input);
 			Person newPerson = new Person();
 			newPerson.tryExtract(input, "http://example.com");
+			PersonDAO.savePerson(newPerson);
 			persons.add(newPerson);
 		}
 		

@@ -6,7 +6,6 @@ package de.unima.peoplesearch.extraction;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
-
 import org.jsoup.Jsoup;
 
 /**
@@ -19,7 +18,6 @@ public class ExtractorTest {
 	 * @param args
 	 * @throws IOException
 	 */
-	@SuppressWarnings("deprecation")
 	public static void main(String[] args) throws IOException {
 		// String url =
 		// "http://dws.informatik.uni-mannheim.de/en/people/professors/prof-dr-simone-paolo-ponzetto/";
@@ -51,9 +49,16 @@ public class ExtractorTest {
 				String input = Jsoup.connect(s).ignoreContentType(true).ignoreHttpErrors(true).timeout(1000).get().toString();
 				input = input.replaceAll("(?i)<br[^>]*>", " br2n ");
 				Person newPerson = new Person();
-				newPerson.tryExtract(input, "http://example.com");
-				if (newPerson.isPerson())
+				String baseUrl = s.replaceAll("/[a-zA-Z0-9]+\\.htm[l]?", "/");
+				
+				newPerson.tryExtract(input, baseUrl);
+				
+				if (newPerson.isPerson()) {
+					newPerson.setUrl(s);
 					persons.add(newPerson);
+				}
+				
+//				System.err.println(newPerson.getImageUrl());
 			} catch (Exception e) {
 				timeoutCounter++;
 				e.printStackTrace();
@@ -72,6 +77,7 @@ public class ExtractorTest {
 		int cImage = 0;
 
 		// Output
+		System.out.println();
 		System.out.println("Extracted people information: ");
 		for (Person p : persons) {
 			System.out.println(p);
@@ -101,7 +107,7 @@ public class ExtractorTest {
 
 		System.out.println("Some stats:");
 		System.out.println("Total pages vistited: " + counter);
-		System.out.println("Found persons-%: " + (double) cPerson/ persons.size());
+		System.out.println("Found persons: " + persons.size());
 		System.out.println("Timouts: " + timeoutCounter);
 		System.out.println("###########");
 		System.out.println("First names-%: " + (double) cFN / persons.size());

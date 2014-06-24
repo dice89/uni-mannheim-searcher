@@ -1,4 +1,4 @@
 uni-mannheim-searcher
 =====================
 
-Search engine for the uni mannheim domain
+Awesome search engine for the uni mannheim domain

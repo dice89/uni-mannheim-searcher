@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <dataConfig>  
   
-<dataSource type="JdbcDataSource" driver="com.mysql.jdbc.Driver" url="jdbc:mysql://localhost:3306/peoplesearch" user="root" password="abc" batchSize="1" />  
+<dataSource type="JdbcDataSource" driver="com.mysql.jdbc.Driver" url="jdbc:mysql://localhost:3306/peoplesearch" user="root" password="" batchSize="1" />  
     <document name="Person">  
   
         <entity name="Person" query="SELECT * FROM Person">  

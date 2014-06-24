@@ -144,6 +144,38 @@
         var source = $("#person-template").html(); 
         var template = Handlebars.compile(source); 
 
+  //       var jqxhr = $.get( "localhost:8983/solr/collection1/select?q=*%3A*&wt=json&indent=true", function() {
+		//   alert( "success" );
+		// })
+		//   .done(function() {
+		//     alert( "second success" );
+		//   })
+		//   .fail(function() {
+		//     alert( "error" );
+		//   })
+		//   .always(function() {
+		//     alert( "finished" );
+		//   });
+
+		  $.ajax({                    
+    url: 'http://localhost:8983/solr/collection1/select',
+    dataType: 'json',
+    cache: false,
+    success: function( data, status ){
+        alert('radi');
+        alert(JSON.stringify(data));
+
+        alert( data.responseData.results.length + ' results found!' );
+    },
+    error: function(xhr, textStatus, err) { //odstampaj textStatus, err jbt
+        alert('ne radi');
+        alert(textStatus);
+        alert(err);
+        alert("readyState: "+xhr.readyState+"\n xhrStatus: "+xhr.status);
+        alert("responseText: "+xhr.responseText);
+    }
+}); 
+
         var data = { 
           users: [ { 
             person: {

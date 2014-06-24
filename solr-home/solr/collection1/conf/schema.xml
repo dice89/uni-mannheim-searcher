@@ -123,13 +123,13 @@
    <field name="id" type="string" indexed="true" stored="true" required="true" multiValued="false" /> 
     <field name="firstNames" type="text_general" indexed="true" stored="true" /> 
     <field name="lastName" type="text_general" indexed="true" stored="true" />
-     <field name="email" type="text_general" indexed="true" stored="true" /> 
+<!--      <field name="email" type="text_general" indexed="true" stored="true" /> 
     <field name="label" type="text_general" indexed="true" stored="true" /> 
     <field name="location_room" type="text_general" indexed="true" stored="true" /> 
      <field name="location_street" type="text_general" indexed="true" stored="true" />
      <field name="location_zip" type="text_general" indexed="true" stored="true" />
      <field name="phoneNumber" type="text_general" indexed="true" stored="true" />
-     <field name="titles" type="text_general" indexed="true" stored="true" />
+     <field name="titles" type="text_general" indexed="true" stored="true" /> -->
    <!-- Common metadata fields, named specifically to match up with
      SolrCell metadata when parsing rich documents such as Word, PDF.
      Some fields are multiValued only because Tika currently may return

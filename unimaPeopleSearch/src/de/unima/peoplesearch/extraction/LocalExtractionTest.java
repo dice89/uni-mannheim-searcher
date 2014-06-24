@@ -12,6 +12,8 @@ import java.util.List;
 import com.google.common.base.Charsets;
 import com.google.common.io.Resources;
 
+import de.unima.peoplesearch.database.PersonDAO;
+
 /**
  * @author Michi
  * 
@@ -42,6 +44,7 @@ public class LocalExtractionTest {
 			// System.out.println(input);
 			Person newPerson = new Person();
 			newPerson.tryExtract(input, "http://example.com");
+			PersonDAO.savePerson(newPerson);
 			persons.add(newPerson);
 		}
 		

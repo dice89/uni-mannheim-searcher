@@ -1,0 +1,8 @@
+/bin
+/target
+/.DS_Store
+/.settings
+/.classpath
+.classpath
+/solr-home/solr/collection1/data/*
+/solr-home/logs/*

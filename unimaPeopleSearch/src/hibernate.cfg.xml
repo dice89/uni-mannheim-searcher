@@ -8,12 +8,12 @@
             <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
             <property name="connection.url">jdbc:mysql://localhost:3306/peoplesearch</property>
             <property name="connection.username">root</property>
-            <property name="connection.password">abc</property>
+            <property name="connection.password"></property>
             <!-- SQL dialect -->
             <property name="dialect">org.hibernate.dialect.MySQLDialect</property>
             <!-- Echo all executed SQL to stdout -->
             <property name="show_sql">true</property>
-			<property name="hibernate.hbm2ddl.auto">update</property>
+			<property name="hibernate.hbm2ddl.auto">create</property>
             <mapping class="de.unima.peoplesearch.extraction.Person"></mapping>  
       </session-factory>
 </hibernate-configuration>

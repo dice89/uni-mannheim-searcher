@@ -13,7 +13,7 @@
             <property name="dialect">org.hibernate.dialect.MySQLDialect</property>
             <!-- Echo all executed SQL to stdout -->
             <property name="show_sql">true</property>
-			<property name="hibernate.hbm2ddl.auto">create</property>
+			<property name="hibernate.hbm2ddl.auto">update</property>
             <mapping class="de.unima.peoplesearch.extraction.Person"></mapping>  
       </session-factory>
 </hibernate-configuration>

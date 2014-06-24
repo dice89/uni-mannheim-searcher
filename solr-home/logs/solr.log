@@ -4617,3 +4617,449 @@ INFO  - 2014-06-19 15:55:05.699; org.apache.solr.update.processor.LogUpdateProce
 INFO  - 2014-06-19 15:55:07.152; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/dataimport params={indent=true&command=status&_=1403186107146&wt=json} status=0 QTime=1 
 INFO  - 2014-06-19 15:55:12.054; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/select params={indent=true&q=*:*&_=1403186112045&wt=json} hits=16 status=0 QTime=1 
 INFO  - 2014-06-19 15:55:22.049; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/select params={indent=true&q=Alpers&_=1403186122038&wt=json} hits=1 status=0 QTime=4 
+INFO  - 2014-06-19 16:18:48.797; org.eclipse.jetty.server.Server; Graceful shutdown SocketConnector@0.0.0.0:8983
+INFO  - 2014-06-19 16:18:48.799; org.eclipse.jetty.server.Server; Graceful shutdown o.e.j.w.WebAppContext{/solr,file:/Users/mueller/websearcher/uni-mannheim-searcher/solr-home/solr-webapp/webapp/},/Users/mueller/websearcher/uni-mannheim-searcher/solr-home/webapps/solr.war
+INFO  - 2014-06-19 16:18:49.802; org.apache.solr.core.CoreContainer; Shutting down CoreContainer instance=970543327
+INFO  - 2014-06-19 16:18:49.803; org.apache.solr.core.SolrCore; [collection1]  CLOSING SolrCore org.apache.solr.core.SolrCore@445c4060
+INFO  - 2014-06-19 16:18:49.804; org.apache.solr.update.DirectUpdateHandler2; closing DirectUpdateHandler2{commits=1,autocommit maxTime=15000ms,autocommits=0,soft autocommits=0,optimizes=0,rollbacks=0,expungeDeletes=0,docsPending=0,adds=0,deletesById=0,deletesByQuery=0,errors=0,cumulative_adds=16,cumulative_deletesById=0,cumulative_deletesByQuery=1,cumulative_errors=0,transaction_logs_total_size=5120,transaction_logs_total_number=6}
+INFO  - 2014-06-19 16:18:49.805; org.apache.solr.update.SolrCoreState; Closing SolrCoreState
+INFO  - 2014-06-19 16:18:49.806; org.apache.solr.update.DefaultSolrCoreState; SolrCoreState ref count has reached 0 - closing IndexWriter
+INFO  - 2014-06-19 16:18:49.806; org.apache.solr.update.DefaultSolrCoreState; closing IndexWriter with IndexWriterCloser
+INFO  - 2014-06-19 16:18:49.810; org.apache.solr.core.SolrCore; [collection1] Closing main searcher on request.
+INFO  - 2014-06-19 16:18:49.811; org.apache.solr.core.CachingDirectoryFactory; Closing NRTCachingDirectoryFactory - 2 directories currently being tracked
+INFO  - 2014-06-19 16:18:49.812; org.apache.solr.core.CachingDirectoryFactory; looking to close /Users/mueller/websearcher/uni-mannheim-searcher/solr-home/solr/collection1/data/index [CachedDir<<refCount=0;path=/Users/mueller/websearcher/uni-mannheim-searcher/solr-home/solr/collection1/data/index;done=false>>]
+INFO  - 2014-06-19 16:18:49.813; org.apache.solr.core.CachingDirectoryFactory; Closing directory: /Users/mueller/websearcher/uni-mannheim-searcher/solr-home/solr/collection1/data/index
+INFO  - 2014-06-19 16:18:49.813; org.apache.solr.core.CachingDirectoryFactory; looking to close /Users/mueller/websearcher/uni-mannheim-searcher/solr-home/solr/collection1/data [CachedDir<<refCount=0;path=/Users/mueller/websearcher/uni-mannheim-searcher/solr-home/solr/collection1/data;done=false>>]
+INFO  - 2014-06-19 16:18:49.813; org.apache.solr.core.CachingDirectoryFactory; Closing directory: /Users/mueller/websearcher/uni-mannheim-searcher/solr-home/solr/collection1/data
+INFO  - 2014-06-19 16:18:49.817; org.eclipse.jetty.server.handler.ContextHandler; stopped o.e.j.w.WebAppContext{/solr,file:/Users/mueller/websearcher/uni-mannheim-searcher/solr-home/solr-webapp/webapp/},/Users/mueller/websearcher/uni-mannheim-searcher/solr-home/webapps/solr.war
+INFO  - 2014-06-19 16:18:53.066; org.eclipse.jetty.server.Server; jetty-8.1.10.v20130312
+INFO  - 2014-06-19 16:18:53.100; org.eclipse.jetty.deploy.providers.ScanningAppProvider; Deployment monitor /Users/mueller/websearcher/uni-mannheim-searcher/solr-home/contexts at interval 0
+INFO  - 2014-06-19 16:18:53.119; org.eclipse.jetty.deploy.DeploymentManager; Deployable added: /Users/mueller/websearcher/uni-mannheim-searcher/solr-home/contexts/solr-jetty-context.xml
+INFO  - 2014-06-19 16:18:54.968; org.eclipse.jetty.webapp.StandardDescriptorProcessor; NO JSP Support for /solr, did not find org.apache.jasper.servlet.JspServlet
+INFO  - 2014-06-19 16:18:55.046; org.apache.solr.servlet.SolrDispatchFilter; SolrDispatchFilter.init()
+INFO  - 2014-06-19 16:18:55.063; org.apache.solr.core.SolrResourceLoader; JNDI not configured for solr (NoInitialContextEx)
+INFO  - 2014-06-19 16:18:55.064; org.apache.solr.core.SolrResourceLoader; solr home defaulted to 'solr/' (could not find system property or JNDI)
+INFO  - 2014-06-19 16:18:55.065; org.apache.solr.core.SolrResourceLoader; new SolrResourceLoader for directory: 'solr/'
+INFO  - 2014-06-19 16:18:55.067; org.apache.solr.core.SolrResourceLoader; Adding 'file:/Users/mueller/websearcher/uni-mannheim-searcher/solr-home/solr/lib/.DS_Store' to classloader
+INFO  - 2014-06-19 16:18:55.067; org.apache.solr.core.SolrResourceLoader; Adding 'file:/Users/mueller/websearcher/uni-mannheim-searcher/solr-home/solr/lib/ext/' to classloader
+INFO  - 2014-06-19 16:18:55.068; org.apache.solr.core.SolrResourceLoader; Adding 'file:/Users/mueller/websearcher/uni-mannheim-searcher/solr-home/solr/lib/jetty-continuation-8.1.10.v20130312.jar' to classloader
+INFO  - 2014-06-19 16:18:55.068; org.apache.solr.core.SolrResourceLoader; Adding 'file:/Users/mueller/websearcher/uni-mannheim-searcher/solr-home/solr/lib/jetty-deploy-8.1.10.v20130312.jar' to classloader
+INFO  - 2014-06-19 16:18:55.068; org.apache.solr.core.SolrResourceLoader; Adding 'file:/Users/mueller/websearcher/uni-mannheim-searcher/solr-home/solr/lib/jetty-http-8.1.10.v20130312.jar' to classloader
+INFO  - 2014-06-19 16:18:55.069; org.apache.solr.core.SolrResourceLoader; Adding 'file:/Users/mueller/websearcher/uni-mannheim-searcher/solr-home/solr/lib/jetty-io-8.1.10.v20130312.jar' to classloader
+INFO  - 2014-06-19 16:18:55.069; org.apache.solr.core.SolrResourceLoader; Adding 'file:/Users/mueller/websearcher/uni-mannheim-searcher/solr-home/solr/lib/jetty-jmx-8.1.10.v20130312.jar' to classloader
+INFO  - 2014-06-19 16:18:55.070; org.apache.solr.core.SolrResourceLoader; Adding 'file:/Users/mueller/websearcher/uni-mannheim-searcher/solr-home/solr/lib/jetty-security-8.1.10.v20130312.jar' to classloader
+INFO  - 2014-06-19 16:18:55.073; org.apache.solr.core.SolrResourceLoader; Adding 'file:/Users/mueller/websearcher/uni-mannheim-searcher/solr-home/solr/lib/jetty-server-8.1.10.v20130312.jar' to classloader
+INFO  - 2014-06-19 16:18:55.073; org.apache.solr.core.SolrResourceLoader; Adding 'file:/Users/mueller/websearcher/uni-mannheim-searcher/solr-home/solr/lib/jetty-servlet-8.1.10.v20130312.jar' to classloader
+INFO  - 2014-06-19 16:18:55.074; org.apache.solr.core.SolrResourceLoader; Adding 'file:/Users/mueller/websearcher/uni-mannheim-searcher/solr-home/solr/lib/jetty-util-8.1.10.v20130312.jar' to classloader
+INFO  - 2014-06-19 16:18:55.074; org.apache.solr.core.SolrResourceLoader; Adding 'file:/Users/mueller/websearcher/uni-mannheim-searcher/solr-home/solr/lib/jetty-webapp-8.1.10.v20130312.jar' to classloader
+INFO  - 2014-06-19 16:18:55.074; org.apache.solr.core.SolrResourceLoader; Adding 'file:/Users/mueller/websearcher/uni-mannheim-searcher/solr-home/solr/lib/jetty-xml-8.1.10.v20130312.jar' to classloader
+INFO  - 2014-06-19 16:18:55.075; org.apache.solr.core.SolrResourceLoader; Adding 'file:/Users/mueller/websearcher/uni-mannheim-searcher/solr-home/solr/lib/mysql-connector-java-5.1.18-bin.jar' to classloader
+INFO  - 2014-06-19 16:18:55.075; org.apache.solr.core.SolrResourceLoader; Adding 'file:/Users/mueller/websearcher/uni-mannheim-searcher/solr-home/solr/lib/servlet-api-3.0.jar' to classloader
+INFO  - 2014-06-19 16:18:55.075; org.apache.solr.core.SolrResourceLoader; Adding 'file:/Users/mueller/websearcher/uni-mannheim-searcher/solr-home/solr/lib/solr-cell-4.8.1.jar' to classloader
+INFO  - 2014-06-19 16:18:55.076; org.apache.solr.core.SolrResourceLoader; Adding 'file:/Users/mueller/websearcher/uni-mannheim-searcher/solr-home/solr/lib/solr-dataimporthandler-4.8.1.jar' to classloader
+INFO  - 2014-06-19 16:18:55.076; org.apache.solr.core.SolrResourceLoader; Adding 'file:/Users/mueller/websearcher/uni-mannheim-searcher/solr-home/solr/lib/solr-dataimporthandler-extras-4.8.1.jar' to classloader
+INFO  - 2014-06-19 16:18:55.305; org.apache.solr.core.ConfigSolr; Loading container configuration from /Users/mueller/websearcher/uni-mannheim-searcher/solr-home/solr/solr.xml
+INFO  - 2014-06-19 16:18:55.544; org.apache.solr.core.CorePropertiesLocator; Config-defined core root directory: /Users/mueller/websearcher/uni-mannheim-searcher/solr-home/solr
+INFO  - 2014-06-19 16:18:55.559; org.apache.solr.core.CoreContainer; New CoreContainer 1783397924
+INFO  - 2014-06-19 16:18:55.562; org.apache.solr.core.CoreContainer; Loading cores into CoreContainer [instanceDir=solr/]
+INFO  - 2014-06-19 16:18:55.596; org.apache.solr.handler.component.HttpShardHandlerFactory; Setting socketTimeout to: 0
+INFO  - 2014-06-19 16:18:55.597; org.apache.solr.handler.component.HttpShardHandlerFactory; Setting urlScheme to: null
+INFO  - 2014-06-19 16:18:55.609; org.apache.solr.handler.component.HttpShardHandlerFactory; Setting connTimeout to: 0
+INFO  - 2014-06-19 16:18:55.610; org.apache.solr.handler.component.HttpShardHandlerFactory; Setting maxConnectionsPerHost to: 20
+INFO  - 2014-06-19 16:18:55.610; org.apache.solr.handler.component.HttpShardHandlerFactory; Setting corePoolSize to: 0
+INFO  - 2014-06-19 16:18:55.610; org.apache.solr.handler.component.HttpShardHandlerFactory; Setting maximumPoolSize to: 2147483647
+INFO  - 2014-06-19 16:18:55.611; org.apache.solr.handler.component.HttpShardHandlerFactory; Setting maxThreadIdleTime to: 5
+INFO  - 2014-06-19 16:18:55.611; org.apache.solr.handler.component.HttpShardHandlerFactory; Setting sizeOfQueue to: -1
+INFO  - 2014-06-19 16:18:55.612; org.apache.solr.handler.component.HttpShardHandlerFactory; Setting fairnessPolicy to: false
+INFO  - 2014-06-19 16:18:55.845; org.apache.solr.logging.LogWatcher; SLF4J impl is org.slf4j.impl.Log4jLoggerFactory
+INFO  - 2014-06-19 16:18:55.847; org.apache.solr.logging.LogWatcher; Registering Log Listener [Log4j (org.slf4j.impl.Log4jLoggerFactory)]
+INFO  - 2014-06-19 16:18:55.852; org.apache.solr.core.CoreContainer; Host Name: 
+INFO  - 2014-06-19 16:18:55.913; org.apache.solr.core.CorePropertiesLocator; Looking for core definitions underneath /Users/mueller/websearcher/uni-mannheim-searcher/solr-home/solr
+INFO  - 2014-06-19 16:18:55.966; org.apache.solr.core.CorePropertiesLocator; Found core collection1 in /Users/mueller/websearcher/uni-mannheim-searcher/solr-home/solr/collection1/
+INFO  - 2014-06-19 16:18:55.968; org.apache.solr.core.CorePropertiesLocator; Found 1 core definitions
+INFO  - 2014-06-19 16:18:55.973; org.apache.solr.core.SolrResourceLoader; new SolrResourceLoader for directory: '/Users/mueller/websearcher/uni-mannheim-searcher/solr-home/solr/collection1/'
+INFO  - 2014-06-19 16:18:56.118; org.apache.solr.core.SolrConfig; Adding specified lib dirs to ClassLoader
+WARN  - 2014-06-19 16:18:56.119; org.apache.solr.core.SolrResourceLoader; Can't find (or read) directory to add to classloader: ../../../contrib/extraction/lib (resolved as: /Users/mueller/websearcher/uni-mannheim-searcher/solr-home/solr/collection1/../../../contrib/extraction/lib).
+WARN  - 2014-06-19 16:18:56.120; org.apache.solr.core.SolrResourceLoader; Can't find (or read) directory to add to classloader: ../../../dist/ (resolved as: /Users/mueller/websearcher/uni-mannheim-searcher/solr-home/solr/collection1/../../../dist).
+WARN  - 2014-06-19 16:18:56.121; org.apache.solr.core.SolrResourceLoader; Can't find (or read) directory to add to classloader: ../../../contrib/clustering/lib/ (resolved as: /Users/mueller/websearcher/uni-mannheim-searcher/solr-home/solr/collection1/../../../contrib/clustering/lib).
+WARN  - 2014-06-19 16:18:56.121; org.apache.solr.core.SolrResourceLoader; Can't find (or read) directory to add to classloader: ../../../dist/ (resolved as: /Users/mueller/websearcher/uni-mannheim-searcher/solr-home/solr/collection1/../../../dist).
+WARN  - 2014-06-19 16:18:56.121; org.apache.solr.core.SolrResourceLoader; Can't find (or read) directory to add to classloader: ../../../contrib/langid/lib/ (resolved as: /Users/mueller/websearcher/uni-mannheim-searcher/solr-home/solr/collection1/../../../contrib/langid/lib).
+WARN  - 2014-06-19 16:18:56.121; org.apache.solr.core.SolrResourceLoader; Can't find (or read) directory to add to classloader: ../../../dist/ (resolved as: /Users/mueller/websearcher/uni-mannheim-searcher/solr-home/solr/collection1/../../../dist).
+WARN  - 2014-06-19 16:18:56.122; org.apache.solr.core.SolrResourceLoader; Can't find (or read) directory to add to classloader: ../../../contrib/velocity/lib (resolved as: /Users/mueller/websearcher/uni-mannheim-searcher/solr-home/solr/collection1/../../../contrib/velocity/lib).
+WARN  - 2014-06-19 16:18:56.122; org.apache.solr.core.SolrResourceLoader; Can't find (or read) directory to add to classloader: ../../../dist/ (resolved as: /Users/mueller/websearcher/uni-mannheim-searcher/solr-home/solr/collection1/../../../dist).
+INFO  - 2014-06-19 16:18:56.399; org.apache.solr.update.SolrIndexConfig; IndexWriter infoStream solr logging is enabled
+INFO  - 2014-06-19 16:18:56.407; org.apache.solr.core.SolrConfig; Using Lucene MatchVersion: LUCENE_48
+INFO  - 2014-06-19 16:18:56.677; org.apache.solr.core.SolrConfig; Loaded SolrConfig: solrconfig.xml
+INFO  - 2014-06-19 16:18:56.693; org.apache.solr.schema.IndexSchema; Reading Solr Schema from schema.xml
+INFO  - 2014-06-19 16:18:56.851; org.apache.solr.schema.IndexSchema; [collection1] Schema name=example
+WARN  - 2014-06-19 16:18:57.043; org.apache.solr.core.SolrResourceLoader; Solr loaded a deprecated plugin/analysis class [solr.IntField]. Please consult documentation how to replace it accordingly.
+WARN  - 2014-06-19 16:18:57.052; org.apache.solr.core.SolrResourceLoader; Solr loaded a deprecated plugin/analysis class [solr.LongField]. Please consult documentation how to replace it accordingly.
+WARN  - 2014-06-19 16:18:57.060; org.apache.solr.core.SolrResourceLoader; Solr loaded a deprecated plugin/analysis class [solr.FloatField]. Please consult documentation how to replace it accordingly.
+WARN  - 2014-06-19 16:18:57.067; org.apache.solr.core.SolrResourceLoader; Solr loaded a deprecated plugin/analysis class [solr.DoubleField]. Please consult documentation how to replace it accordingly.
+WARN  - 2014-06-19 16:18:57.075; org.apache.solr.core.SolrResourceLoader; Solr loaded a deprecated plugin/analysis class [solr.DateField]. Please consult documentation how to replace it accordingly.
+WARN  - 2014-06-19 16:18:57.863; org.apache.solr.core.SolrResourceLoader; Solr loaded a deprecated plugin/analysis class [solr.ThaiWordFilterFactory]. Please consult documentation how to replace it accordingly.
+INFO  - 2014-06-19 16:18:57.926; org.apache.solr.schema.IndexSchema; unique key field: id
+INFO  - 2014-06-19 16:18:57.944; org.apache.solr.rest.RestManager$Registry; Registered ManagedResource impl org.apache.solr.rest.schema.analysis.ManagedWordSetResource for path /schema/analysis/stopwords/english
+INFO  - 2014-06-19 16:18:57.945; org.apache.solr.rest.RestManager$Registry; Registered ManagedResource impl org.apache.solr.rest.schema.analysis.ManagedSynonymFilterFactory$SynonymManager for path /schema/analysis/synonyms/english
+INFO  - 2014-06-19 16:18:58.103; org.apache.solr.schema.FileExchangeRateProvider; Reloading exchange rates from file currency.xml
+INFO  - 2014-06-19 16:18:58.115; org.apache.solr.schema.FileExchangeRateProvider; Reloading exchange rates from file currency.xml
+INFO  - 2014-06-19 16:18:58.346; org.apache.solr.core.CoreContainer; Creating SolrCore 'collection1' using configuration from instancedir /Users/mueller/websearcher/uni-mannheim-searcher/solr-home/solr/collection1/
+INFO  - 2014-06-19 16:18:58.366; org.apache.solr.core.SolrCore; solr.NRTCachingDirectoryFactory
+INFO  - 2014-06-19 16:18:58.379; org.apache.solr.core.SolrCore; [collection1] Opening new SolrCore at /Users/mueller/websearcher/uni-mannheim-searcher/solr-home/solr/collection1/, dataDir=/Users/mueller/websearcher/uni-mannheim-searcher/solr-home/solr/collection1/data/
+INFO  - 2014-06-19 16:18:58.381; org.apache.solr.core.JmxMonitoredMap; No JMX servers found, not exposing Solr information with JMX.
+INFO  - 2014-06-19 16:18:58.389; org.apache.solr.core.SolrCore; [collection1] Added SolrEventListener for newSearcher: org.apache.solr.core.QuerySenderListener{queries=[]}
+INFO  - 2014-06-19 16:18:58.390; org.apache.solr.core.SolrCore; [collection1] Added SolrEventListener for firstSearcher: org.apache.solr.core.QuerySenderListener{queries=[{q=static firstSearcher warming in solrconfig.xml}]}
+INFO  - 2014-06-19 16:18:58.408; org.apache.solr.core.CachingDirectoryFactory; return new directory for /Users/mueller/websearcher/uni-mannheim-searcher/solr-home/solr/collection1/data
+INFO  - 2014-06-19 16:18:58.411; org.apache.solr.core.SolrCore; New index directory detected: old=null new=/Users/mueller/websearcher/uni-mannheim-searcher/solr-home/solr/collection1/data/index/
+INFO  - 2014-06-19 16:18:58.412; org.apache.solr.core.CachingDirectoryFactory; return new directory for /Users/mueller/websearcher/uni-mannheim-searcher/solr-home/solr/collection1/data/index
+INFO  - 2014-06-19 16:18:58.431; org.apache.solr.core.SolrCore; created json: solr.JSONResponseWriter
+INFO  - 2014-06-19 16:18:58.432; org.apache.solr.core.SolrCore; adding lazy queryResponseWriter: solr.VelocityResponseWriter
+INFO  - 2014-06-19 16:18:58.433; org.apache.solr.core.SolrCore; created velocity: solr.VelocityResponseWriter
+INFO  - 2014-06-19 16:18:58.438; org.apache.solr.core.SolrCore; created xslt: solr.XSLTResponseWriter
+INFO  - 2014-06-19 16:18:58.438; org.apache.solr.response.XSLTResponseWriter; xsltCacheLifetimeSeconds=5
+INFO  - 2014-06-19 16:18:58.583; org.apache.solr.core.SolrCore; no updateRequestProcessorChain defined as default, creating implicit default
+INFO  - 2014-06-19 16:18:58.596; org.apache.solr.core.RequestHandlers; created /dataimport: org.apache.solr.handler.dataimport.DataImportHandler
+INFO  - 2014-06-19 16:18:58.605; org.apache.solr.core.RequestHandlers; created /select: solr.SearchHandler
+INFO  - 2014-06-19 16:18:58.605; org.apache.solr.core.RequestHandlers; created /query: solr.SearchHandler
+INFO  - 2014-06-19 16:18:58.608; org.apache.solr.core.RequestHandlers; created /get: solr.RealTimeGetHandler
+INFO  - 2014-06-19 16:18:58.609; org.apache.solr.core.RequestHandlers; created /browse: solr.SearchHandler
+INFO  - 2014-06-19 16:18:58.614; org.apache.solr.core.RequestHandlers; created /update: solr.UpdateRequestHandler
+INFO  - 2014-06-19 16:18:58.614; org.apache.solr.core.RequestHandlers; created /update/json: solr.UpdateRequestHandler
+INFO  - 2014-06-19 16:18:58.615; org.apache.solr.core.RequestHandlers; created /update/csv: solr.UpdateRequestHandler
+INFO  - 2014-06-19 16:18:58.615; org.apache.solr.core.RequestHandlers; adding lazy requestHandler: solr.extraction.ExtractingRequestHandler
+INFO  - 2014-06-19 16:18:58.617; org.apache.solr.core.RequestHandlers; created /update/extract: solr.extraction.ExtractingRequestHandler
+INFO  - 2014-06-19 16:18:58.617; org.apache.solr.core.RequestHandlers; adding lazy requestHandler: solr.FieldAnalysisRequestHandler
+INFO  - 2014-06-19 16:18:58.625; org.apache.solr.core.RequestHandlers; created /analysis/field: solr.FieldAnalysisRequestHandler
+INFO  - 2014-06-19 16:18:58.626; org.apache.solr.core.RequestHandlers; adding lazy requestHandler: solr.DocumentAnalysisRequestHandler
+INFO  - 2014-06-19 16:18:58.626; org.apache.solr.core.RequestHandlers; created /analysis/document: solr.DocumentAnalysisRequestHandler
+INFO  - 2014-06-19 16:18:58.630; org.apache.solr.core.RequestHandlers; created /admin/: solr.admin.AdminHandlers
+INFO  - 2014-06-19 16:18:58.634; org.apache.solr.core.RequestHandlers; created /admin/ping: solr.PingRequestHandler
+INFO  - 2014-06-19 16:18:58.638; org.apache.solr.core.RequestHandlers; created /debug/dump: solr.DumpRequestHandler
+INFO  - 2014-06-19 16:18:58.653; org.apache.solr.core.RequestHandlers; created /replication: solr.ReplicationHandler
+INFO  - 2014-06-19 16:18:58.653; org.apache.solr.core.RequestHandlers; adding lazy requestHandler: solr.SearchHandler
+INFO  - 2014-06-19 16:18:58.653; org.apache.solr.core.RequestHandlers; created /spell: solr.SearchHandler
+INFO  - 2014-06-19 16:18:58.654; org.apache.solr.core.RequestHandlers; adding lazy requestHandler: solr.SearchHandler
+INFO  - 2014-06-19 16:18:58.654; org.apache.solr.core.RequestHandlers; created /suggest: solr.SearchHandler
+INFO  - 2014-06-19 16:18:58.654; org.apache.solr.core.RequestHandlers; adding lazy requestHandler: solr.SearchHandler
+INFO  - 2014-06-19 16:18:58.654; org.apache.solr.core.RequestHandlers; created /tvrh: solr.SearchHandler
+INFO  - 2014-06-19 16:18:58.654; org.apache.solr.core.RequestHandlers; adding lazy requestHandler: solr.SearchHandler
+INFO  - 2014-06-19 16:18:58.655; org.apache.solr.core.RequestHandlers; created /terms: solr.SearchHandler
+INFO  - 2014-06-19 16:18:58.655; org.apache.solr.core.RequestHandlers; adding lazy requestHandler: solr.SearchHandler
+INFO  - 2014-06-19 16:18:58.655; org.apache.solr.core.RequestHandlers; created /elevate: solr.SearchHandler
+INFO  - 2014-06-19 16:18:58.686; org.apache.solr.handler.loader.XMLLoader; xsltCacheLifetimeSeconds=60
+INFO  - 2014-06-19 16:18:58.689; org.apache.solr.handler.loader.XMLLoader; xsltCacheLifetimeSeconds=60
+INFO  - 2014-06-19 16:18:58.691; org.apache.solr.handler.loader.XMLLoader; xsltCacheLifetimeSeconds=60
+INFO  - 2014-06-19 16:18:58.736; org.apache.solr.update.CommitTracker; Hard AutoCommit: if uncommited for 15000ms; 
+INFO  - 2014-06-19 16:18:58.737; org.apache.solr.update.CommitTracker; Soft AutoCommit: disabled
+INFO  - 2014-06-19 16:18:58.825; org.apache.solr.core.SolrDeletionPolicy; SolrDeletionPolicy.onInit: commits: num=1
+	commit{dir=NRTCachingDirectory(NIOFSDirectory@/Users/mueller/websearcher/uni-mannheim-searcher/solr-home/solr/collection1/data/index lockFactory=NativeFSLockFactory@/Users/mueller/websearcher/uni-mannheim-searcher/solr-home/solr/collection1/data/index; maxCacheMB=48.0 maxMergeSizeMB=4.0),segFN=segments_7,generation=7}
+INFO  - 2014-06-19 16:18:58.826; org.apache.solr.core.SolrDeletionPolicy; newest commit generation = 7
+INFO  - 2014-06-19 16:18:58.860; org.apache.solr.search.SolrIndexSearcher; Opening Searcher@4ae000a2[collection1] main
+INFO  - 2014-06-19 16:18:58.870; org.apache.solr.rest.ManagedResourceStorage$FileStorageIO; File-based storage initialized to use dir: /Users/mueller/websearcher/uni-mannheim-searcher/solr-home/solr/collection1/conf
+INFO  - 2014-06-19 16:18:58.871; org.apache.solr.rest.RestManager; Initializing RestManager with initArgs: {storageDir=/Users/mueller/websearcher/uni-mannheim-searcher/solr-home/solr/collection1/conf/}
+INFO  - 2014-06-19 16:18:58.873; org.apache.solr.rest.ManagedResourceStorage; Reading _rest_managed.json using file:dir=/Users/mueller/websearcher/uni-mannheim-searcher/solr-home/solr/collection1/conf
+WARN  - 2014-06-19 16:18:58.873; org.apache.solr.rest.ManagedResource; No stored data found for /rest/managed
+WARN  - 2014-06-19 16:18:58.874; org.apache.solr.rest.ManagedResource; No registered observers for /rest/managed
+INFO  - 2014-06-19 16:18:58.874; org.apache.solr.rest.RestManager; Initializing 2 registered ManagedResources
+INFO  - 2014-06-19 16:18:58.874; org.apache.solr.rest.ManagedResourceStorage; Reading _schema_analysis_stopwords_english.json using file:dir=/Users/mueller/websearcher/uni-mannheim-searcher/solr-home/solr/collection1/conf
+INFO  - 2014-06-19 16:18:58.888; org.apache.solr.rest.ManagedResourceStorage; Loaded LinkedHashMap at path _schema_analysis_stopwords_english.json using file:dir=/Users/mueller/websearcher/uni-mannheim-searcher/solr-home/solr/collection1/conf
+INFO  - 2014-06-19 16:18:58.889; org.apache.solr.rest.ManagedResource; Loaded initArgs {ignoreCase=true} for /schema/analysis/stopwords/english
+INFO  - 2014-06-19 16:18:58.889; org.apache.solr.rest.schema.analysis.ManagedWordSetResource; Loaded 35 words for /schema/analysis/stopwords/english
+INFO  - 2014-06-19 16:18:58.890; org.apache.solr.rest.ManagedResource; Notified 1 observers of /schema/analysis/stopwords/english
+INFO  - 2014-06-19 16:18:58.890; org.apache.solr.rest.ManagedResourceStorage; Reading _schema_analysis_synonyms_english.json using file:dir=/Users/mueller/websearcher/uni-mannheim-searcher/solr-home/solr/collection1/conf
+INFO  - 2014-06-19 16:18:58.891; org.apache.solr.rest.ManagedResourceStorage; Loaded LinkedHashMap at path _schema_analysis_synonyms_english.json using file:dir=/Users/mueller/websearcher/uni-mannheim-searcher/solr-home/solr/collection1/conf
+INFO  - 2014-06-19 16:18:58.892; org.apache.solr.rest.ManagedResource; Loaded initArgs {ignoreCase=true,format=solr} for /schema/analysis/synonyms/english
+INFO  - 2014-06-19 16:18:58.892; org.apache.solr.rest.schema.analysis.ManagedSynonymFilterFactory$SynonymManager; Loaded 3 synonym mappings for /schema/analysis/synonyms/english
+INFO  - 2014-06-19 16:18:58.895; org.apache.solr.rest.ManagedResource; Notified 1 observers of /schema/analysis/synonyms/english
+INFO  - 2014-06-19 16:18:58.895; org.apache.solr.handler.component.SpellCheckComponent; Initializing spell checkers
+INFO  - 2014-06-19 16:18:58.907; org.apache.solr.spelling.DirectSolrSpellChecker; init: {name=default,field=text,classname=solr.DirectSolrSpellChecker,distanceMeasure=internal,accuracy=0.5,maxEdits=2,minPrefix=1,maxInspections=5,minQueryLength=4,maxQueryFrequency=0.01}
+INFO  - 2014-06-19 16:18:58.924; org.apache.solr.handler.component.SpellCheckComponent; No queryConverter defined, using default converter
+INFO  - 2014-06-19 16:18:58.927; org.apache.solr.handler.component.SuggestComponent; Initializing SuggestComponent
+INFO  - 2014-06-19 16:18:58.929; org.apache.solr.spelling.suggest.SolrSuggester; init: {name=mySuggester,lookupImpl=FuzzyLookupFactory,dictionaryImpl=DocumentDictionaryFactory,field=cat,weightField=price,suggestAnalyzerFieldType=string}
+INFO  - 2014-06-19 16:18:58.953; org.apache.solr.spelling.suggest.SolrSuggester; Dictionary loaded with params: {name=mySuggester,lookupImpl=FuzzyLookupFactory,dictionaryImpl=DocumentDictionaryFactory,field=cat,weightField=price,suggestAnalyzerFieldType=string}
+INFO  - 2014-06-19 16:18:58.956; org.apache.solr.handler.component.QueryElevationComponent; Loading QueryElevation from: /Users/mueller/websearcher/uni-mannheim-searcher/solr-home/solr/collection1/conf/elevate.xml
+INFO  - 2014-06-19 16:18:59.009; org.apache.solr.handler.ReplicationHandler; Commits will be reserved for  10000
+INFO  - 2014-06-19 16:18:59.010; org.apache.solr.core.QuerySenderListener; QuerySenderListener sending requests to Searcher@4ae000a2[collection1] main{StandardDirectoryReader(segments_7:15:nrt _3(4.8):C16)}
+INFO  - 2014-06-19 16:18:59.011; org.apache.solr.core.CoreContainer; registering core: collection1
+INFO  - 2014-06-19 16:18:59.056; org.apache.solr.servlet.SolrDispatchFilter; user.dir=/Users/mueller/websearcher/uni-mannheim-searcher/solr-home
+INFO  - 2014-06-19 16:18:59.057; org.apache.solr.servlet.SolrDispatchFilter; SolrDispatchFilter.init() done
+INFO  - 2014-06-19 16:18:59.146; org.apache.solr.core.SolrCore; [collection1] webapp=null path=null params={event=firstSearcher&q=static+firstSearcher+warming+in+solrconfig.xml&distrib=false} hits=0 status=0 QTime=133 
+INFO  - 2014-06-19 16:18:59.148; org.apache.solr.core.QuerySenderListener; QuerySenderListener done.
+INFO  - 2014-06-19 16:18:59.153; org.eclipse.jetty.server.AbstractConnector; Started SocketConnector@0.0.0.0:8983
+INFO  - 2014-06-19 16:18:59.148; org.apache.solr.handler.component.SpellCheckComponent$SpellCheckerListener; Loading spell index for spellchecker: default
+INFO  - 2014-06-19 16:18:59.156; org.apache.solr.handler.component.SpellCheckComponent$SpellCheckerListener; Loading spell index for spellchecker: wordbreak
+INFO  - 2014-06-19 16:18:59.156; org.apache.solr.handler.component.SuggestComponent$SuggesterListener; Loading suggester index for: mySuggester
+INFO  - 2014-06-19 16:18:59.157; org.apache.solr.spelling.suggest.SolrSuggester; reload()
+INFO  - 2014-06-19 16:18:59.157; org.apache.solr.spelling.suggest.SolrSuggester; build()
+INFO  - 2014-06-19 16:18:59.199; org.apache.solr.core.SolrCore; [collection1] Registered new searcher Searcher@4ae000a2[collection1] main{StandardDirectoryReader(segments_7:15:nrt _3(4.8):C16)}
+INFO  - 2014-06-19 16:19:11.528; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/admin/mbeans params={cat=QUERYHANDLER&_=1403187551418&wt=json} status=0 QTime=4 
+INFO  - 2014-06-19 16:19:11.664; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/admin/mbeans params={cat=QUERYHANDLER&_=1403187551656&wt=json} status=0 QTime=1 
+INFO  - 2014-06-19 16:19:11.678; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/dataimport params={indent=true&command=status&_=1403187551669&wt=json} status=0 QTime=3 
+INFO  - 2014-06-19 16:19:11.683; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/dataimport params={indent=true&command=show-config&_=1403187551658} status=0 QTime=3 
+INFO  - 2014-06-19 16:19:16.150; org.apache.solr.handler.dataimport.DataImporter; Loading DIH Configuration: data-config.xml
+INFO  - 2014-06-19 16:19:16.171; org.apache.solr.handler.dataimport.DataImporter; Data Configuration loaded successfully
+INFO  - 2014-06-19 16:19:16.177; org.apache.solr.handler.dataimport.DataImporter; Starting Full Import
+INFO  - 2014-06-19 16:19:16.180; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/dataimport params={optimize=false&indent=true&clean=true&commit=true&verbose=false&entity=Person&command=full-import&debug=false&wt=json} status=0 QTime=30 
+INFO  - 2014-06-19 16:19:16.207; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/dataimport params={indent=true&command=status&_=1403187556188&wt=json} status=0 QTime=0 
+INFO  - 2014-06-19 16:19:16.232; org.apache.solr.handler.dataimport.SimplePropertiesWriter; Read dataimport.properties
+INFO  - 2014-06-19 16:19:16.332; org.apache.solr.search.SolrIndexSearcher; Opening Searcher@1c0b914c[collection1] realtime
+INFO  - 2014-06-19 16:19:16.357; org.apache.solr.handler.dataimport.JdbcDataSource$1; Creating a connection for entity Person with URL: jdbc:mysql://localhost:3306/peoplesearch
+INFO  - 2014-06-19 16:19:16.797; org.apache.solr.handler.dataimport.JdbcDataSource$1; Time taken for getConnection(): 439
+INFO  - 2014-06-19 16:19:16.902; org.apache.solr.handler.dataimport.DocBuilder; Import completed successfully
+INFO  - 2014-06-19 16:19:16.903; org.apache.solr.update.DirectUpdateHandler2; start commit{,optimize=false,openSearcher=true,waitSearcher=true,expungeDeletes=false,softCommit=false,prepareCommit=false}
+INFO  - 2014-06-19 16:19:16.963; org.apache.solr.core.SolrDeletionPolicy; SolrDeletionPolicy.onCommit: commits: num=2
+	commit{dir=NRTCachingDirectory(NIOFSDirectory@/Users/mueller/websearcher/uni-mannheim-searcher/solr-home/solr/collection1/data/index lockFactory=NativeFSLockFactory@/Users/mueller/websearcher/uni-mannheim-searcher/solr-home/solr/collection1/data/index; maxCacheMB=48.0 maxMergeSizeMB=4.0),segFN=segments_7,generation=7}
+	commit{dir=NRTCachingDirectory(NIOFSDirectory@/Users/mueller/websearcher/uni-mannheim-searcher/solr-home/solr/collection1/data/index lockFactory=NativeFSLockFactory@/Users/mueller/websearcher/uni-mannheim-searcher/solr-home/solr/collection1/data/index; maxCacheMB=48.0 maxMergeSizeMB=4.0),segFN=segments_8,generation=8}
+INFO  - 2014-06-19 16:19:16.963; org.apache.solr.core.SolrDeletionPolicy; newest commit generation = 8
+INFO  - 2014-06-19 16:19:16.972; org.apache.solr.search.SolrIndexSearcher; Opening Searcher@6c16e441[collection1] main
+INFO  - 2014-06-19 16:19:16.979; org.apache.solr.core.QuerySenderListener; QuerySenderListener sending requests to Searcher@6c16e441[collection1] main{StandardDirectoryReader(segments_8:19:nrt _4(4.8):C16)}
+INFO  - 2014-06-19 16:19:16.984; org.apache.solr.core.QuerySenderListener; QuerySenderListener done.
+INFO  - 2014-06-19 16:19:16.985; org.apache.solr.core.SolrCore; [collection1] Registered new searcher Searcher@6c16e441[collection1] main{StandardDirectoryReader(segments_8:19:nrt _4(4.8):C16)}
+INFO  - 2014-06-19 16:19:16.992; org.apache.solr.update.DirectUpdateHandler2; end_commit_flush
+INFO  - 2014-06-19 16:19:16.992; org.apache.solr.handler.dataimport.SimplePropertiesWriter; Read dataimport.properties
+INFO  - 2014-06-19 16:19:16.999; org.apache.solr.handler.dataimport.SimplePropertiesWriter; Wrote last indexed time to dataimport.properties
+INFO  - 2014-06-19 16:19:17.000; org.apache.solr.handler.dataimport.DocBuilder; Time taken = 0:0:0.766
+INFO  - 2014-06-19 16:19:17.000; org.apache.solr.update.processor.LogUpdateProcessor; [collection1] webapp=/solr path=/dataimport params={optimize=false&indent=true&clean=true&commit=true&verbose=false&entity=Person&command=full-import&debug=false&wt=json} status=0 QTime=30 {deleteByQuery=*:* (-1471348795005468672),add=[1 (1471348795570651136), 2 (1471348795616788480), 3 (1471348795619934208), 4 (1471348795625177088), 5 (1471348795627274240), 6 (1471348795631468544), 7 (1471348795634614272), 8 (1471348795636711424), 9 (1471348795639857152), 10 (1471348795643002880), ... (16 adds)],commit=} 0 30
+INFO  - 2014-06-19 16:19:17.358; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/dataimport params={indent=true&command=status&_=1403187557348&wt=json} status=0 QTime=1 
+INFO  - 2014-06-19 16:19:21.650; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/select params={indent=true&q=*:*&_=1403187561642&wt=json} hits=16 status=0 QTime=1 
+INFO  - 2014-06-19 16:20:19.931; org.eclipse.jetty.server.Server; Graceful shutdown SocketConnector@0.0.0.0:8983
+INFO  - 2014-06-19 16:20:19.933; org.eclipse.jetty.server.Server; Graceful shutdown o.e.j.w.WebAppContext{/solr,file:/Users/mueller/websearcher/uni-mannheim-searcher/solr-home/solr-webapp/webapp/},/Users/mueller/websearcher/uni-mannheim-searcher/solr-home/webapps/solr.war
+INFO  - 2014-06-19 16:20:20.935; org.apache.solr.core.CoreContainer; Shutting down CoreContainer instance=1783397924
+INFO  - 2014-06-19 16:20:20.937; org.apache.solr.core.SolrCore; [collection1]  CLOSING SolrCore org.apache.solr.core.SolrCore@6f5ffa07
+INFO  - 2014-06-19 16:20:20.938; org.apache.solr.update.DirectUpdateHandler2; closing DirectUpdateHandler2{commits=1,autocommit maxTime=15000ms,autocommits=0,soft autocommits=0,optimizes=0,rollbacks=0,expungeDeletes=0,docsPending=0,adds=0,deletesById=0,deletesByQuery=0,errors=0,cumulative_adds=16,cumulative_deletesById=0,cumulative_deletesByQuery=1,cumulative_errors=0,transaction_logs_total_size=8390,transaction_logs_total_number=7}
+INFO  - 2014-06-19 16:20:20.939; org.apache.solr.update.SolrCoreState; Closing SolrCoreState
+INFO  - 2014-06-19 16:20:20.939; org.apache.solr.update.DefaultSolrCoreState; SolrCoreState ref count has reached 0 - closing IndexWriter
+INFO  - 2014-06-19 16:20:20.939; org.apache.solr.update.DefaultSolrCoreState; closing IndexWriter with IndexWriterCloser
+INFO  - 2014-06-19 16:20:20.943; org.apache.solr.core.SolrCore; [collection1] Closing main searcher on request.
+INFO  - 2014-06-19 16:20:20.944; org.apache.solr.core.CachingDirectoryFactory; Closing NRTCachingDirectoryFactory - 2 directories currently being tracked
+INFO  - 2014-06-19 16:20:20.945; org.apache.solr.core.CachingDirectoryFactory; looking to close /Users/mueller/websearcher/uni-mannheim-searcher/solr-home/solr/collection1/data/index [CachedDir<<refCount=0;path=/Users/mueller/websearcher/uni-mannheim-searcher/solr-home/solr/collection1/data/index;done=false>>]
+INFO  - 2014-06-19 16:20:20.945; org.apache.solr.core.CachingDirectoryFactory; Closing directory: /Users/mueller/websearcher/uni-mannheim-searcher/solr-home/solr/collection1/data/index
+INFO  - 2014-06-19 16:20:20.946; org.apache.solr.core.CachingDirectoryFactory; looking to close /Users/mueller/websearcher/uni-mannheim-searcher/solr-home/solr/collection1/data [CachedDir<<refCount=0;path=/Users/mueller/websearcher/uni-mannheim-searcher/solr-home/solr/collection1/data;done=false>>]
+INFO  - 2014-06-19 16:20:20.946; org.apache.solr.core.CachingDirectoryFactory; Closing directory: /Users/mueller/websearcher/uni-mannheim-searcher/solr-home/solr/collection1/data
+INFO  - 2014-06-19 16:20:20.949; org.eclipse.jetty.server.handler.ContextHandler; stopped o.e.j.w.WebAppContext{/solr,file:/Users/mueller/websearcher/uni-mannheim-searcher/solr-home/solr-webapp/webapp/},/Users/mueller/websearcher/uni-mannheim-searcher/solr-home/webapps/solr.war
+INFO  - 2014-06-19 16:20:22.901; org.eclipse.jetty.server.Server; jetty-8.1.10.v20130312
+INFO  - 2014-06-19 16:20:22.933; org.eclipse.jetty.deploy.providers.ScanningAppProvider; Deployment monitor /Users/mueller/websearcher/uni-mannheim-searcher/solr-home/contexts at interval 0
+INFO  - 2014-06-19 16:20:22.950; org.eclipse.jetty.deploy.DeploymentManager; Deployable added: /Users/mueller/websearcher/uni-mannheim-searcher/solr-home/contexts/solr-jetty-context.xml
+INFO  - 2014-06-19 16:20:24.699; org.eclipse.jetty.webapp.StandardDescriptorProcessor; NO JSP Support for /solr, did not find org.apache.jasper.servlet.JspServlet
+INFO  - 2014-06-19 16:20:24.778; org.apache.solr.servlet.SolrDispatchFilter; SolrDispatchFilter.init()
+INFO  - 2014-06-19 16:20:24.797; org.apache.solr.core.SolrResourceLoader; JNDI not configured for solr (NoInitialContextEx)
+INFO  - 2014-06-19 16:20:24.798; org.apache.solr.core.SolrResourceLoader; solr home defaulted to 'solr/' (could not find system property or JNDI)
+INFO  - 2014-06-19 16:20:24.799; org.apache.solr.core.SolrResourceLoader; new SolrResourceLoader for directory: 'solr/'
+INFO  - 2014-06-19 16:20:24.801; org.apache.solr.core.SolrResourceLoader; Adding 'file:/Users/mueller/websearcher/uni-mannheim-searcher/solr-home/solr/lib/.DS_Store' to classloader
+INFO  - 2014-06-19 16:20:24.801; org.apache.solr.core.SolrResourceLoader; Adding 'file:/Users/mueller/websearcher/uni-mannheim-searcher/solr-home/solr/lib/ext/' to classloader
+INFO  - 2014-06-19 16:20:24.802; org.apache.solr.core.SolrResourceLoader; Adding 'file:/Users/mueller/websearcher/uni-mannheim-searcher/solr-home/solr/lib/jetty-continuation-8.1.10.v20130312.jar' to classloader
+INFO  - 2014-06-19 16:20:24.802; org.apache.solr.core.SolrResourceLoader; Adding 'file:/Users/mueller/websearcher/uni-mannheim-searcher/solr-home/solr/lib/jetty-deploy-8.1.10.v20130312.jar' to classloader
+INFO  - 2014-06-19 16:20:24.802; org.apache.solr.core.SolrResourceLoader; Adding 'file:/Users/mueller/websearcher/uni-mannheim-searcher/solr-home/solr/lib/jetty-http-8.1.10.v20130312.jar' to classloader
+INFO  - 2014-06-19 16:20:24.803; org.apache.solr.core.SolrResourceLoader; Adding 'file:/Users/mueller/websearcher/uni-mannheim-searcher/solr-home/solr/lib/jetty-io-8.1.10.v20130312.jar' to classloader
+INFO  - 2014-06-19 16:20:24.803; org.apache.solr.core.SolrResourceLoader; Adding 'file:/Users/mueller/websearcher/uni-mannheim-searcher/solr-home/solr/lib/jetty-jmx-8.1.10.v20130312.jar' to classloader
+INFO  - 2014-06-19 16:20:24.803; org.apache.solr.core.SolrResourceLoader; Adding 'file:/Users/mueller/websearcher/uni-mannheim-searcher/solr-home/solr/lib/jetty-security-8.1.10.v20130312.jar' to classloader
+INFO  - 2014-06-19 16:20:24.807; org.apache.solr.core.SolrResourceLoader; Adding 'file:/Users/mueller/websearcher/uni-mannheim-searcher/solr-home/solr/lib/jetty-server-8.1.10.v20130312.jar' to classloader
+INFO  - 2014-06-19 16:20:24.807; org.apache.solr.core.SolrResourceLoader; Adding 'file:/Users/mueller/websearcher/uni-mannheim-searcher/solr-home/solr/lib/jetty-servlet-8.1.10.v20130312.jar' to classloader
+INFO  - 2014-06-19 16:20:24.808; org.apache.solr.core.SolrResourceLoader; Adding 'file:/Users/mueller/websearcher/uni-mannheim-searcher/solr-home/solr/lib/jetty-util-8.1.10.v20130312.jar' to classloader
+INFO  - 2014-06-19 16:20:24.808; org.apache.solr.core.SolrResourceLoader; Adding 'file:/Users/mueller/websearcher/uni-mannheim-searcher/solr-home/solr/lib/jetty-webapp-8.1.10.v20130312.jar' to classloader
+INFO  - 2014-06-19 16:20:24.808; org.apache.solr.core.SolrResourceLoader; Adding 'file:/Users/mueller/websearcher/uni-mannheim-searcher/solr-home/solr/lib/jetty-xml-8.1.10.v20130312.jar' to classloader
+INFO  - 2014-06-19 16:20:24.809; org.apache.solr.core.SolrResourceLoader; Adding 'file:/Users/mueller/websearcher/uni-mannheim-searcher/solr-home/solr/lib/mysql-connector-java-5.1.18-bin.jar' to classloader
+INFO  - 2014-06-19 16:20:24.809; org.apache.solr.core.SolrResourceLoader; Adding 'file:/Users/mueller/websearcher/uni-mannheim-searcher/solr-home/solr/lib/servlet-api-3.0.jar' to classloader
+INFO  - 2014-06-19 16:20:24.810; org.apache.solr.core.SolrResourceLoader; Adding 'file:/Users/mueller/websearcher/uni-mannheim-searcher/solr-home/solr/lib/solr-cell-4.8.1.jar' to classloader
+INFO  - 2014-06-19 16:20:24.810; org.apache.solr.core.SolrResourceLoader; Adding 'file:/Users/mueller/websearcher/uni-mannheim-searcher/solr-home/solr/lib/solr-dataimporthandler-4.8.1.jar' to classloader
+INFO  - 2014-06-19 16:20:24.810; org.apache.solr.core.SolrResourceLoader; Adding 'file:/Users/mueller/websearcher/uni-mannheim-searcher/solr-home/solr/lib/solr-dataimporthandler-extras-4.8.1.jar' to classloader
+INFO  - 2014-06-19 16:20:25.012; org.apache.solr.core.ConfigSolr; Loading container configuration from /Users/mueller/websearcher/uni-mannheim-searcher/solr-home/solr/solr.xml
+INFO  - 2014-06-19 16:20:25.255; org.apache.solr.core.CorePropertiesLocator; Config-defined core root directory: /Users/mueller/websearcher/uni-mannheim-searcher/solr-home/solr
+INFO  - 2014-06-19 16:20:25.271; org.apache.solr.core.CoreContainer; New CoreContainer 648700030
+INFO  - 2014-06-19 16:20:25.283; org.apache.solr.core.CoreContainer; Loading cores into CoreContainer [instanceDir=solr/]
+INFO  - 2014-06-19 16:20:25.305; org.apache.solr.handler.component.HttpShardHandlerFactory; Setting socketTimeout to: 0
+INFO  - 2014-06-19 16:20:25.306; org.apache.solr.handler.component.HttpShardHandlerFactory; Setting urlScheme to: null
+INFO  - 2014-06-19 16:20:25.313; org.apache.solr.handler.component.HttpShardHandlerFactory; Setting connTimeout to: 0
+INFO  - 2014-06-19 16:20:25.313; org.apache.solr.handler.component.HttpShardHandlerFactory; Setting maxConnectionsPerHost to: 20
+INFO  - 2014-06-19 16:20:25.313; org.apache.solr.handler.component.HttpShardHandlerFactory; Setting corePoolSize to: 0
+INFO  - 2014-06-19 16:20:25.314; org.apache.solr.handler.component.HttpShardHandlerFactory; Setting maximumPoolSize to: 2147483647
+INFO  - 2014-06-19 16:20:25.314; org.apache.solr.handler.component.HttpShardHandlerFactory; Setting maxThreadIdleTime to: 5
+INFO  - 2014-06-19 16:20:25.314; org.apache.solr.handler.component.HttpShardHandlerFactory; Setting sizeOfQueue to: -1
+INFO  - 2014-06-19 16:20:25.314; org.apache.solr.handler.component.HttpShardHandlerFactory; Setting fairnessPolicy to: false
+INFO  - 2014-06-19 16:20:25.488; org.apache.solr.logging.LogWatcher; SLF4J impl is org.slf4j.impl.Log4jLoggerFactory
+INFO  - 2014-06-19 16:20:25.490; org.apache.solr.logging.LogWatcher; Registering Log Listener [Log4j (org.slf4j.impl.Log4jLoggerFactory)]
+INFO  - 2014-06-19 16:20:25.492; org.apache.solr.core.CoreContainer; Host Name: 
+INFO  - 2014-06-19 16:20:25.544; org.apache.solr.core.CorePropertiesLocator; Looking for core definitions underneath /Users/mueller/websearcher/uni-mannheim-searcher/solr-home/solr
+INFO  - 2014-06-19 16:20:25.557; org.apache.solr.core.CorePropertiesLocator; Found core collection1 in /Users/mueller/websearcher/uni-mannheim-searcher/solr-home/solr/collection1/
+INFO  - 2014-06-19 16:20:25.558; org.apache.solr.core.CorePropertiesLocator; Found 1 core definitions
+INFO  - 2014-06-19 16:20:25.560; org.apache.solr.core.SolrResourceLoader; new SolrResourceLoader for directory: '/Users/mueller/websearcher/uni-mannheim-searcher/solr-home/solr/collection1/'
+INFO  - 2014-06-19 16:20:25.694; org.apache.solr.core.SolrConfig; Adding specified lib dirs to ClassLoader
+WARN  - 2014-06-19 16:20:25.695; org.apache.solr.core.SolrResourceLoader; Can't find (or read) directory to add to classloader: ../../../contrib/extraction/lib (resolved as: /Users/mueller/websearcher/uni-mannheim-searcher/solr-home/solr/collection1/../../../contrib/extraction/lib).
+WARN  - 2014-06-19 16:20:25.695; org.apache.solr.core.SolrResourceLoader; Can't find (or read) directory to add to classloader: ../../../dist/ (resolved as: /Users/mueller/websearcher/uni-mannheim-searcher/solr-home/solr/collection1/../../../dist).
+WARN  - 2014-06-19 16:20:25.696; org.apache.solr.core.SolrResourceLoader; Can't find (or read) directory to add to classloader: ../../../contrib/clustering/lib/ (resolved as: /Users/mueller/websearcher/uni-mannheim-searcher/solr-home/solr/collection1/../../../contrib/clustering/lib).
+WARN  - 2014-06-19 16:20:25.696; org.apache.solr.core.SolrResourceLoader; Can't find (or read) directory to add to classloader: ../../../dist/ (resolved as: /Users/mueller/websearcher/uni-mannheim-searcher/solr-home/solr/collection1/../../../dist).
+WARN  - 2014-06-19 16:20:25.697; org.apache.solr.core.SolrResourceLoader; Can't find (or read) directory to add to classloader: ../../../contrib/langid/lib/ (resolved as: /Users/mueller/websearcher/uni-mannheim-searcher/solr-home/solr/collection1/../../../contrib/langid/lib).
+WARN  - 2014-06-19 16:20:25.697; org.apache.solr.core.SolrResourceLoader; Can't find (or read) directory to add to classloader: ../../../dist/ (resolved as: /Users/mueller/websearcher/uni-mannheim-searcher/solr-home/solr/collection1/../../../dist).
+WARN  - 2014-06-19 16:20:25.697; org.apache.solr.core.SolrResourceLoader; Can't find (or read) directory to add to classloader: ../../../contrib/velocity/lib (resolved as: /Users/mueller/websearcher/uni-mannheim-searcher/solr-home/solr/collection1/../../../contrib/velocity/lib).
+WARN  - 2014-06-19 16:20:25.698; org.apache.solr.core.SolrResourceLoader; Can't find (or read) directory to add to classloader: ../../../dist/ (resolved as: /Users/mueller/websearcher/uni-mannheim-searcher/solr-home/solr/collection1/../../../dist).
+INFO  - 2014-06-19 16:20:25.980; org.apache.solr.update.SolrIndexConfig; IndexWriter infoStream solr logging is enabled
+INFO  - 2014-06-19 16:20:25.988; org.apache.solr.core.SolrConfig; Using Lucene MatchVersion: LUCENE_48
+INFO  - 2014-06-19 16:20:26.227; org.apache.solr.core.SolrConfig; Loaded SolrConfig: solrconfig.xml
+INFO  - 2014-06-19 16:20:26.236; org.apache.solr.schema.IndexSchema; Reading Solr Schema from schema.xml
+INFO  - 2014-06-19 16:20:26.381; org.apache.solr.schema.IndexSchema; [collection1] Schema name=example
+WARN  - 2014-06-19 16:20:26.534; org.apache.solr.core.SolrResourceLoader; Solr loaded a deprecated plugin/analysis class [solr.IntField]. Please consult documentation how to replace it accordingly.
+WARN  - 2014-06-19 16:20:26.541; org.apache.solr.core.SolrResourceLoader; Solr loaded a deprecated plugin/analysis class [solr.LongField]. Please consult documentation how to replace it accordingly.
+WARN  - 2014-06-19 16:20:26.548; org.apache.solr.core.SolrResourceLoader; Solr loaded a deprecated plugin/analysis class [solr.FloatField]. Please consult documentation how to replace it accordingly.
+WARN  - 2014-06-19 16:20:26.556; org.apache.solr.core.SolrResourceLoader; Solr loaded a deprecated plugin/analysis class [solr.DoubleField]. Please consult documentation how to replace it accordingly.
+WARN  - 2014-06-19 16:20:26.563; org.apache.solr.core.SolrResourceLoader; Solr loaded a deprecated plugin/analysis class [solr.DateField]. Please consult documentation how to replace it accordingly.
+WARN  - 2014-06-19 16:20:27.246; org.apache.solr.core.SolrResourceLoader; Solr loaded a deprecated plugin/analysis class [solr.ThaiWordFilterFactory]. Please consult documentation how to replace it accordingly.
+INFO  - 2014-06-19 16:20:27.304; org.apache.solr.schema.IndexSchema; unique key field: id
+INFO  - 2014-06-19 16:20:27.322; org.apache.solr.rest.RestManager$Registry; Registered ManagedResource impl org.apache.solr.rest.schema.analysis.ManagedWordSetResource for path /schema/analysis/stopwords/english
+INFO  - 2014-06-19 16:20:27.323; org.apache.solr.rest.RestManager$Registry; Registered ManagedResource impl org.apache.solr.rest.schema.analysis.ManagedSynonymFilterFactory$SynonymManager for path /schema/analysis/synonyms/english
+INFO  - 2014-06-19 16:20:27.431; org.apache.solr.schema.FileExchangeRateProvider; Reloading exchange rates from file currency.xml
+INFO  - 2014-06-19 16:20:27.442; org.apache.solr.schema.FileExchangeRateProvider; Reloading exchange rates from file currency.xml
+INFO  - 2014-06-19 16:20:27.632; org.apache.solr.core.CoreContainer; Creating SolrCore 'collection1' using configuration from instancedir /Users/mueller/websearcher/uni-mannheim-searcher/solr-home/solr/collection1/
+INFO  - 2014-06-19 16:20:27.653; org.apache.solr.core.SolrCore; solr.NRTCachingDirectoryFactory
+INFO  - 2014-06-19 16:20:27.668; org.apache.solr.core.SolrCore; [collection1] Opening new SolrCore at /Users/mueller/websearcher/uni-mannheim-searcher/solr-home/solr/collection1/, dataDir=/Users/mueller/websearcher/uni-mannheim-searcher/solr-home/solr/collection1/data/
+INFO  - 2014-06-19 16:20:27.670; org.apache.solr.core.JmxMonitoredMap; No JMX servers found, not exposing Solr information with JMX.
+INFO  - 2014-06-19 16:20:27.680; org.apache.solr.core.SolrCore; [collection1] Added SolrEventListener for newSearcher: org.apache.solr.core.QuerySenderListener{queries=[]}
+INFO  - 2014-06-19 16:20:27.681; org.apache.solr.core.SolrCore; [collection1] Added SolrEventListener for firstSearcher: org.apache.solr.core.QuerySenderListener{queries=[{q=static firstSearcher warming in solrconfig.xml}]}
+INFO  - 2014-06-19 16:20:27.704; org.apache.solr.core.CachingDirectoryFactory; return new directory for /Users/mueller/websearcher/uni-mannheim-searcher/solr-home/solr/collection1/data
+INFO  - 2014-06-19 16:20:27.714; org.apache.solr.core.SolrCore; New index directory detected: old=null new=/Users/mueller/websearcher/uni-mannheim-searcher/solr-home/solr/collection1/data/index/
+INFO  - 2014-06-19 16:20:27.720; org.apache.solr.core.CachingDirectoryFactory; return new directory for /Users/mueller/websearcher/uni-mannheim-searcher/solr-home/solr/collection1/data/index
+INFO  - 2014-06-19 16:20:27.740; org.apache.solr.core.SolrCore; created json: solr.JSONResponseWriter
+INFO  - 2014-06-19 16:20:27.740; org.apache.solr.core.SolrCore; adding lazy queryResponseWriter: solr.VelocityResponseWriter
+INFO  - 2014-06-19 16:20:27.741; org.apache.solr.core.SolrCore; created velocity: solr.VelocityResponseWriter
+INFO  - 2014-06-19 16:20:27.746; org.apache.solr.core.SolrCore; created xslt: solr.XSLTResponseWriter
+INFO  - 2014-06-19 16:20:27.746; org.apache.solr.response.XSLTResponseWriter; xsltCacheLifetimeSeconds=5
+INFO  - 2014-06-19 16:20:27.889; org.apache.solr.core.SolrCore; no updateRequestProcessorChain defined as default, creating implicit default
+INFO  - 2014-06-19 16:20:27.909; org.apache.solr.core.RequestHandlers; created /dataimport: org.apache.solr.handler.dataimport.DataImportHandler
+INFO  - 2014-06-19 16:20:27.918; org.apache.solr.core.RequestHandlers; created /select: solr.SearchHandler
+INFO  - 2014-06-19 16:20:27.918; org.apache.solr.core.RequestHandlers; created /query: solr.SearchHandler
+INFO  - 2014-06-19 16:20:27.921; org.apache.solr.core.RequestHandlers; created /get: solr.RealTimeGetHandler
+INFO  - 2014-06-19 16:20:27.922; org.apache.solr.core.RequestHandlers; created /browse: solr.SearchHandler
+INFO  - 2014-06-19 16:20:27.927; org.apache.solr.core.RequestHandlers; created /update: solr.UpdateRequestHandler
+INFO  - 2014-06-19 16:20:27.928; org.apache.solr.core.RequestHandlers; created /update/json: solr.UpdateRequestHandler
+INFO  - 2014-06-19 16:20:27.930; org.apache.solr.core.RequestHandlers; created /update/csv: solr.UpdateRequestHandler
+INFO  - 2014-06-19 16:20:27.931; org.apache.solr.core.RequestHandlers; adding lazy requestHandler: solr.extraction.ExtractingRequestHandler
+INFO  - 2014-06-19 16:20:27.932; org.apache.solr.core.RequestHandlers; created /update/extract: solr.extraction.ExtractingRequestHandler
+INFO  - 2014-06-19 16:20:27.932; org.apache.solr.core.RequestHandlers; adding lazy requestHandler: solr.FieldAnalysisRequestHandler
+INFO  - 2014-06-19 16:20:27.934; org.apache.solr.core.RequestHandlers; created /analysis/field: solr.FieldAnalysisRequestHandler
+INFO  - 2014-06-19 16:20:27.935; org.apache.solr.core.RequestHandlers; adding lazy requestHandler: solr.DocumentAnalysisRequestHandler
+INFO  - 2014-06-19 16:20:27.936; org.apache.solr.core.RequestHandlers; created /analysis/document: solr.DocumentAnalysisRequestHandler
+INFO  - 2014-06-19 16:20:27.939; org.apache.solr.core.RequestHandlers; created /admin/: solr.admin.AdminHandlers
+INFO  - 2014-06-19 16:20:27.943; org.apache.solr.core.RequestHandlers; created /admin/ping: solr.PingRequestHandler
+INFO  - 2014-06-19 16:20:27.946; org.apache.solr.core.RequestHandlers; created /debug/dump: solr.DumpRequestHandler
+INFO  - 2014-06-19 16:20:27.959; org.apache.solr.core.RequestHandlers; created /replication: solr.ReplicationHandler
+INFO  - 2014-06-19 16:20:27.959; org.apache.solr.core.RequestHandlers; adding lazy requestHandler: solr.SearchHandler
+INFO  - 2014-06-19 16:20:27.960; org.apache.solr.core.RequestHandlers; created /spell: solr.SearchHandler
+INFO  - 2014-06-19 16:20:27.960; org.apache.solr.core.RequestHandlers; adding lazy requestHandler: solr.SearchHandler
+INFO  - 2014-06-19 16:20:27.960; org.apache.solr.core.RequestHandlers; created /suggest: solr.SearchHandler
+INFO  - 2014-06-19 16:20:27.960; org.apache.solr.core.RequestHandlers; adding lazy requestHandler: solr.SearchHandler
+INFO  - 2014-06-19 16:20:27.960; org.apache.solr.core.RequestHandlers; created /tvrh: solr.SearchHandler
+INFO  - 2014-06-19 16:20:27.961; org.apache.solr.core.RequestHandlers; adding lazy requestHandler: solr.SearchHandler
+INFO  - 2014-06-19 16:20:27.961; org.apache.solr.core.RequestHandlers; created /terms: solr.SearchHandler
+INFO  - 2014-06-19 16:20:27.961; org.apache.solr.core.RequestHandlers; adding lazy requestHandler: solr.SearchHandler
+INFO  - 2014-06-19 16:20:27.961; org.apache.solr.core.RequestHandlers; created /elevate: solr.SearchHandler
+INFO  - 2014-06-19 16:20:27.983; org.apache.solr.handler.loader.XMLLoader; xsltCacheLifetimeSeconds=60
+INFO  - 2014-06-19 16:20:27.987; org.apache.solr.handler.loader.XMLLoader; xsltCacheLifetimeSeconds=60
+INFO  - 2014-06-19 16:20:27.988; org.apache.solr.handler.loader.XMLLoader; xsltCacheLifetimeSeconds=60
+INFO  - 2014-06-19 16:20:28.023; org.apache.solr.update.CommitTracker; Hard AutoCommit: if uncommited for 15000ms; 
+INFO  - 2014-06-19 16:20:28.024; org.apache.solr.update.CommitTracker; Soft AutoCommit: disabled
+INFO  - 2014-06-19 16:20:28.078; org.apache.solr.core.SolrDeletionPolicy; SolrDeletionPolicy.onInit: commits: num=1
+	commit{dir=NRTCachingDirectory(NIOFSDirectory@/Users/mueller/websearcher/uni-mannheim-searcher/solr-home/solr/collection1/data/index lockFactory=NativeFSLockFactory@/Users/mueller/websearcher/uni-mannheim-searcher/solr-home/solr/collection1/data/index; maxCacheMB=48.0 maxMergeSizeMB=4.0),segFN=segments_8,generation=8}
+INFO  - 2014-06-19 16:20:28.079; org.apache.solr.core.SolrDeletionPolicy; newest commit generation = 8
+INFO  - 2014-06-19 16:20:28.110; org.apache.solr.search.SolrIndexSearcher; Opening Searcher@7de0a5c6[collection1] main
+INFO  - 2014-06-19 16:20:28.120; org.apache.solr.rest.ManagedResourceStorage$FileStorageIO; File-based storage initialized to use dir: /Users/mueller/websearcher/uni-mannheim-searcher/solr-home/solr/collection1/conf
+INFO  - 2014-06-19 16:20:28.120; org.apache.solr.rest.RestManager; Initializing RestManager with initArgs: {storageDir=/Users/mueller/websearcher/uni-mannheim-searcher/solr-home/solr/collection1/conf/}
+INFO  - 2014-06-19 16:20:28.122; org.apache.solr.rest.ManagedResourceStorage; Reading _rest_managed.json using file:dir=/Users/mueller/websearcher/uni-mannheim-searcher/solr-home/solr/collection1/conf
+WARN  - 2014-06-19 16:20:28.122; org.apache.solr.rest.ManagedResource; No stored data found for /rest/managed
+WARN  - 2014-06-19 16:20:28.123; org.apache.solr.rest.ManagedResource; No registered observers for /rest/managed
+INFO  - 2014-06-19 16:20:28.123; org.apache.solr.rest.RestManager; Initializing 2 registered ManagedResources
+INFO  - 2014-06-19 16:20:28.123; org.apache.solr.rest.ManagedResourceStorage; Reading _schema_analysis_stopwords_english.json using file:dir=/Users/mueller/websearcher/uni-mannheim-searcher/solr-home/solr/collection1/conf
+INFO  - 2014-06-19 16:20:28.130; org.apache.solr.rest.ManagedResourceStorage; Loaded LinkedHashMap at path _schema_analysis_stopwords_english.json using file:dir=/Users/mueller/websearcher/uni-mannheim-searcher/solr-home/solr/collection1/conf
+INFO  - 2014-06-19 16:20:28.131; org.apache.solr.rest.ManagedResource; Loaded initArgs {ignoreCase=true} for /schema/analysis/stopwords/english
+INFO  - 2014-06-19 16:20:28.132; org.apache.solr.rest.schema.analysis.ManagedWordSetResource; Loaded 35 words for /schema/analysis/stopwords/english
+INFO  - 2014-06-19 16:20:28.132; org.apache.solr.rest.ManagedResource; Notified 1 observers of /schema/analysis/stopwords/english
+INFO  - 2014-06-19 16:20:28.134; org.apache.solr.rest.ManagedResourceStorage; Reading _schema_analysis_synonyms_english.json using file:dir=/Users/mueller/websearcher/uni-mannheim-searcher/solr-home/solr/collection1/conf
+INFO  - 2014-06-19 16:20:28.135; org.apache.solr.rest.ManagedResourceStorage; Loaded LinkedHashMap at path _schema_analysis_synonyms_english.json using file:dir=/Users/mueller/websearcher/uni-mannheim-searcher/solr-home/solr/collection1/conf
+INFO  - 2014-06-19 16:20:28.135; org.apache.solr.rest.ManagedResource; Loaded initArgs {ignoreCase=true,format=solr} for /schema/analysis/synonyms/english
+INFO  - 2014-06-19 16:20:28.136; org.apache.solr.rest.schema.analysis.ManagedSynonymFilterFactory$SynonymManager; Loaded 3 synonym mappings for /schema/analysis/synonyms/english
+INFO  - 2014-06-19 16:20:28.138; org.apache.solr.rest.ManagedResource; Notified 1 observers of /schema/analysis/synonyms/english
+INFO  - 2014-06-19 16:20:28.139; org.apache.solr.handler.component.SpellCheckComponent; Initializing spell checkers
+INFO  - 2014-06-19 16:20:28.148; org.apache.solr.spelling.DirectSolrSpellChecker; init: {name=default,field=text,classname=solr.DirectSolrSpellChecker,distanceMeasure=internal,accuracy=0.5,maxEdits=2,minPrefix=1,maxInspections=5,minQueryLength=4,maxQueryFrequency=0.01}
+INFO  - 2014-06-19 16:20:28.162; org.apache.solr.handler.component.SpellCheckComponent; No queryConverter defined, using default converter
+INFO  - 2014-06-19 16:20:28.164; org.apache.solr.handler.component.SuggestComponent; Initializing SuggestComponent
+INFO  - 2014-06-19 16:20:28.165; org.apache.solr.spelling.suggest.SolrSuggester; init: {name=mySuggester,lookupImpl=FuzzyLookupFactory,dictionaryImpl=DocumentDictionaryFactory,field=cat,weightField=price,suggestAnalyzerFieldType=string}
+INFO  - 2014-06-19 16:20:28.187; org.apache.solr.spelling.suggest.SolrSuggester; Dictionary loaded with params: {name=mySuggester,lookupImpl=FuzzyLookupFactory,dictionaryImpl=DocumentDictionaryFactory,field=cat,weightField=price,suggestAnalyzerFieldType=string}
+INFO  - 2014-06-19 16:20:28.189; org.apache.solr.handler.component.QueryElevationComponent; Loading QueryElevation from: /Users/mueller/websearcher/uni-mannheim-searcher/solr-home/solr/collection1/conf/elevate.xml
+INFO  - 2014-06-19 16:20:28.237; org.apache.solr.handler.ReplicationHandler; Commits will be reserved for  10000
+INFO  - 2014-06-19 16:20:28.238; org.apache.solr.core.QuerySenderListener; QuerySenderListener sending requests to Searcher@7de0a5c6[collection1] main{StandardDirectoryReader(segments_8:19:nrt _4(4.8):C16)}
+INFO  - 2014-06-19 16:20:28.239; org.apache.solr.core.CoreContainer; registering core: collection1
+INFO  - 2014-06-19 16:20:28.265; org.apache.solr.servlet.SolrDispatchFilter; user.dir=/Users/mueller/websearcher/uni-mannheim-searcher/solr-home
+INFO  - 2014-06-19 16:20:28.266; org.apache.solr.servlet.SolrDispatchFilter; SolrDispatchFilter.init() done
+INFO  - 2014-06-19 16:20:28.370; org.apache.solr.core.SolrCore; [collection1] webapp=null path=null params={event=firstSearcher&q=static+firstSearcher+warming+in+solrconfig.xml&distrib=false} hits=0 status=0 QTime=112 
+INFO  - 2014-06-19 16:20:28.371; org.apache.solr.core.QuerySenderListener; QuerySenderListener done.
+INFO  - 2014-06-19 16:20:28.372; org.eclipse.jetty.server.AbstractConnector; Started SocketConnector@0.0.0.0:8983
+INFO  - 2014-06-19 16:20:28.371; org.apache.solr.handler.component.SpellCheckComponent$SpellCheckerListener; Loading spell index for spellchecker: default
+INFO  - 2014-06-19 16:20:28.372; org.apache.solr.handler.component.SpellCheckComponent$SpellCheckerListener; Loading spell index for spellchecker: wordbreak
+INFO  - 2014-06-19 16:20:28.372; org.apache.solr.handler.component.SuggestComponent$SuggesterListener; Loading suggester index for: mySuggester
+INFO  - 2014-06-19 16:20:28.373; org.apache.solr.spelling.suggest.SolrSuggester; reload()
+INFO  - 2014-06-19 16:20:28.373; org.apache.solr.spelling.suggest.SolrSuggester; build()
+INFO  - 2014-06-19 16:20:28.393; org.apache.solr.core.SolrCore; [collection1] Registered new searcher Searcher@7de0a5c6[collection1] main{StandardDirectoryReader(segments_8:19:nrt _4(4.8):C16)}
+INFO  - 2014-06-19 16:20:43.251; org.apache.solr.servlet.SolrDispatchFilter; [admin] webapp=null path=/admin/cores params={indexInfo=false&_=1403187643202&wt=json} status=0 QTime=7 
+INFO  - 2014-06-19 16:20:43.579; org.apache.solr.servlet.SolrDispatchFilter; [admin] webapp=null path=/admin/info/system params={_=1403187643397&wt=json} status=0 QTime=101 
+INFO  - 2014-06-19 16:20:47.033; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/admin/mbeans params={cat=QUERYHANDLER&_=1403187647017&wt=json} status=0 QTime=9 
+INFO  - 2014-06-19 16:20:47.145; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/admin/mbeans params={cat=QUERYHANDLER&_=1403187647126&wt=json} status=0 QTime=1 
+INFO  - 2014-06-19 16:20:47.164; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/dataimport params={indent=true&command=status&_=1403187647137&wt=json} status=0 QTime=4 
+INFO  - 2014-06-19 16:20:47.206; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/dataimport params={indent=true&command=show-config&_=1403187647128} status=0 QTime=26 
+INFO  - 2014-06-19 16:20:48.285; org.apache.solr.handler.dataimport.DataImporter; Loading DIH Configuration: data-config.xml
+INFO  - 2014-06-19 16:20:48.308; org.apache.solr.handler.dataimport.DataImporter; Data Configuration loaded successfully
+INFO  - 2014-06-19 16:20:48.316; org.apache.solr.handler.dataimport.DataImporter; Starting Full Import
+INFO  - 2014-06-19 16:20:48.317; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/dataimport params={optimize=false&indent=true&clean=true&commit=true&verbose=false&command=full-import&debug=false&wt=json} status=0 QTime=33 
+INFO  - 2014-06-19 16:20:48.348; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/dataimport params={indent=true&command=status&_=1403187648327&wt=json} status=0 QTime=0 
+INFO  - 2014-06-19 16:20:48.392; org.apache.solr.handler.dataimport.SimplePropertiesWriter; Read dataimport.properties
+INFO  - 2014-06-19 16:20:48.512; org.apache.solr.search.SolrIndexSearcher; Opening Searcher@5dbd5a2c[collection1] realtime
+INFO  - 2014-06-19 16:20:48.535; org.apache.solr.handler.dataimport.JdbcDataSource$1; Creating a connection for entity Person with URL: jdbc:mysql://localhost:3306/peoplesearch
+INFO  - 2014-06-19 16:20:48.924; org.apache.solr.handler.dataimport.JdbcDataSource$1; Time taken for getConnection(): 388
+INFO  - 2014-06-19 16:20:49.033; org.apache.solr.handler.dataimport.DocBuilder; Import completed successfully
+INFO  - 2014-06-19 16:20:49.034; org.apache.solr.update.DirectUpdateHandler2; start commit{,optimize=false,openSearcher=true,waitSearcher=true,expungeDeletes=false,softCommit=false,prepareCommit=false}
+INFO  - 2014-06-19 16:20:49.089; org.apache.solr.core.SolrDeletionPolicy; SolrDeletionPolicy.onCommit: commits: num=2
+	commit{dir=NRTCachingDirectory(NIOFSDirectory@/Users/mueller/websearcher/uni-mannheim-searcher/solr-home/solr/collection1/data/index lockFactory=NativeFSLockFactory@/Users/mueller/websearcher/uni-mannheim-searcher/solr-home/solr/collection1/data/index; maxCacheMB=48.0 maxMergeSizeMB=4.0),segFN=segments_8,generation=8}
+	commit{dir=NRTCachingDirectory(NIOFSDirectory@/Users/mueller/websearcher/uni-mannheim-searcher/solr-home/solr/collection1/data/index lockFactory=NativeFSLockFactory@/Users/mueller/websearcher/uni-mannheim-searcher/solr-home/solr/collection1/data/index; maxCacheMB=48.0 maxMergeSizeMB=4.0),segFN=segments_9,generation=9}
+INFO  - 2014-06-19 16:20:49.090; org.apache.solr.core.SolrDeletionPolicy; newest commit generation = 9
+INFO  - 2014-06-19 16:20:49.097; org.apache.solr.search.SolrIndexSearcher; Opening Searcher@39edbe5d[collection1] main
+INFO  - 2014-06-19 16:20:49.101; org.apache.solr.core.QuerySenderListener; QuerySenderListener sending requests to Searcher@39edbe5d[collection1] main{StandardDirectoryReader(segments_9:23:nrt _5(4.8):C16)}
+INFO  - 2014-06-19 16:20:49.104; org.apache.solr.core.QuerySenderListener; QuerySenderListener done.
+INFO  - 2014-06-19 16:20:49.104; org.apache.solr.core.SolrCore; [collection1] Registered new searcher Searcher@39edbe5d[collection1] main{StandardDirectoryReader(segments_9:23:nrt _5(4.8):C16)}
+INFO  - 2014-06-19 16:20:49.101; org.apache.solr.update.DirectUpdateHandler2; end_commit_flush
+INFO  - 2014-06-19 16:20:49.113; org.apache.solr.handler.dataimport.SimplePropertiesWriter; Read dataimport.properties
+INFO  - 2014-06-19 16:20:49.119; org.apache.solr.handler.dataimport.SimplePropertiesWriter; Wrote last indexed time to dataimport.properties
+INFO  - 2014-06-19 16:20:49.119; org.apache.solr.handler.dataimport.DocBuilder; Time taken = 0:0:0.720
+INFO  - 2014-06-19 16:20:49.120; org.apache.solr.update.processor.LogUpdateProcessor; [collection1] webapp=/solr path=/dataimport params={optimize=false&indent=true&clean=true&commit=true&verbose=false&command=full-import&debug=false&wt=json} status=0 QTime=33 {deleteByQuery=*:* (-1471348891661107200),add=[1 (1471348892173860864), 2 (1471348892216852480), 3 (1471348892219998208), 4 (1471348892223143936), 5 (1471348892226289664), 6 (1471348892230483968), 7 (1471348892233629696), 8 (1471348892235726848), 9 (1471348892248309760), 10 (1471348892250406912), ... (16 adds)],commit=} 0 33
+INFO  - 2014-06-19 16:20:50.606; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/dataimport params={indent=true&command=status&_=1403187650598&wt=json} status=0 QTime=1 
+INFO  - 2014-06-19 16:20:53.267; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/admin/file/ params={file=admin-extra.menu-bottom.html&_=1403187653256&contentType=text/html;charset%3Dutf-8} status=0 QTime=1 
+INFO  - 2014-06-19 16:20:53.269; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/admin/file/ params={file=admin-extra.menu-top.html&_=1403187653255&contentType=text/html;charset%3Dutf-8} status=0 QTime=1 
+INFO  - 2014-06-19 16:20:53.336; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/admin/luke params={numTerms=0&_=1403187653322&show=index&wt=json} status=0 QTime=2 
+INFO  - 2014-06-19 16:20:53.383; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/replication params={command=details&_=1403187653330&wt=json} status=0 QTime=38 
+INFO  - 2014-06-19 16:20:53.389; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/admin/file/ params={file=admin-extra.html&_=1403187653337} status=0 QTime=22 
+INFO  - 2014-06-19 16:20:53.391; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/admin/ping params={action=status&_=1403187653342&wt=json} status=503 QTime=3 
+INFO  - 2014-06-19 16:20:53.613; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/admin/system params={_=1403187653335&wt=json} status=0 QTime=266 
+INFO  - 2014-06-19 16:20:54.898; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/admin/luke params={_=1403187654858&show=schema&wt=json} status=0 QTime=11 
+INFO  - 2014-06-19 16:20:55.649; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/admin/mbeans params={cat=QUERYHANDLER&_=1403187655644&wt=json} status=0 QTime=1 
+INFO  - 2014-06-19 16:20:55.700; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/admin/mbeans params={cat=QUERYHANDLER&_=1403187655680&wt=json} status=0 QTime=1 
+INFO  - 2014-06-19 16:20:55.723; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/dataimport params={indent=true&command=show-config&_=1403187655685} status=0 QTime=0 
+INFO  - 2014-06-19 16:20:55.726; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/dataimport params={indent=true&command=status&_=1403187655706&wt=json} status=0 QTime=3 
+INFO  - 2014-06-19 16:20:58.420; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/admin/file params={_=1403187658413&wt=json} status=0 QTime=3 
+INFO  - 2014-06-19 16:20:59.614; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/admin/ping params={ts=1403187659604&_=1403187659604&wt=json} hits=0 status=0 QTime=6 
+INFO  - 2014-06-19 16:20:59.614; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/admin/ping params={ts=1403187659604&_=1403187659604&wt=json} status=0 QTime=6 
+INFO  - 2014-06-19 16:21:01.078; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/admin/mbeans params={stats=true&_=1403187661047&wt=json} status=0 QTime=28 
+INFO  - 2014-06-19 16:21:04.787; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/select params={indent=true&q=*:*&_=1403187664781&wt=json} hits=16 status=0 QTime=1 
+INFO  - 2014-06-19 16:21:18.871; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/select params={lastName=vitae&indent=true&q=*:*&_=1403187678857&wt=json} hits=16 status=0 QTime=1 
+INFO  - 2014-06-19 16:21:25.215; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/select params={lastName=vitae&indent=true&_=1403187685203&wt=json} hits=0 status=0 QTime=1 
+INFO  - 2014-06-19 16:21:36.431; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/select params={indent=true&q=lastName%3Dvitae&_=1403187696420&wt=json} hits=2 status=0 QTime=7 
+INFO  - 2014-06-19 18:08:54.271; org.eclipse.jetty.server.Server; Graceful shutdown SocketConnector@0.0.0.0:8983
+INFO  - 2014-06-19 18:08:54.272; org.eclipse.jetty.server.Server; Graceful shutdown o.e.j.w.WebAppContext{/solr,file:/Users/mueller/websearcher/uni-mannheim-searcher/solr-home/solr-webapp/webapp/},/Users/mueller/websearcher/uni-mannheim-searcher/solr-home/webapps/solr.war
+INFO  - 2014-06-19 18:08:55.275; org.apache.solr.core.CoreContainer; Shutting down CoreContainer instance=648700030
+INFO  - 2014-06-19 18:08:55.277; org.apache.solr.core.SolrCore; [collection1]  CLOSING SolrCore org.apache.solr.core.SolrCore@16138ce2
+INFO  - 2014-06-19 18:08:55.279; org.apache.solr.update.DirectUpdateHandler2; closing DirectUpdateHandler2{commits=1,autocommit maxTime=15000ms,autocommits=0,soft autocommits=0,optimizes=0,rollbacks=0,expungeDeletes=0,docsPending=0,adds=0,deletesById=0,deletesByQuery=0,errors=0,cumulative_adds=16,cumulative_deletesById=0,cumulative_deletesByQuery=1,cumulative_errors=0,transaction_logs_total_size=12156,transaction_logs_total_number=8}
+INFO  - 2014-06-19 18:08:55.280; org.apache.solr.update.SolrCoreState; Closing SolrCoreState
+INFO  - 2014-06-19 18:08:55.280; org.apache.solr.update.DefaultSolrCoreState; SolrCoreState ref count has reached 0 - closing IndexWriter
+INFO  - 2014-06-19 18:08:55.280; org.apache.solr.update.DefaultSolrCoreState; closing IndexWriter with IndexWriterCloser
+INFO  - 2014-06-19 18:08:55.285; org.apache.solr.core.SolrCore; [collection1] Closing main searcher on request.
+INFO  - 2014-06-19 18:08:55.286; org.apache.solr.core.CachingDirectoryFactory; Closing NRTCachingDirectoryFactory - 2 directories currently being tracked
+INFO  - 2014-06-19 18:08:55.287; org.apache.solr.core.CachingDirectoryFactory; looking to close /Users/mueller/websearcher/uni-mannheim-searcher/solr-home/solr/collection1/data/index [CachedDir<<refCount=0;path=/Users/mueller/websearcher/uni-mannheim-searcher/solr-home/solr/collection1/data/index;done=false>>]
+INFO  - 2014-06-19 18:08:55.287; org.apache.solr.core.CachingDirectoryFactory; Closing directory: /Users/mueller/websearcher/uni-mannheim-searcher/solr-home/solr/collection1/data/index
+INFO  - 2014-06-19 18:08:55.288; org.apache.solr.core.CachingDirectoryFactory; looking to close /Users/mueller/websearcher/uni-mannheim-searcher/solr-home/solr/collection1/data [CachedDir<<refCount=0;path=/Users/mueller/websearcher/uni-mannheim-searcher/solr-home/solr/collection1/data;done=false>>]
+INFO  - 2014-06-19 18:08:55.288; org.apache.solr.core.CachingDirectoryFactory; Closing directory: /Users/mueller/websearcher/uni-mannheim-searcher/solr-home/solr/collection1/data
+INFO  - 2014-06-19 18:08:55.293; org.eclipse.jetty.server.handler.ContextHandler; stopped o.e.j.w.WebAppContext{/solr,file:/Users/mueller/websearcher/uni-mannheim-searcher/solr-home/solr-webapp/webapp/},/Users/mueller/websearcher/uni-mannheim-searcher/solr-home/webapps/solr.war

@@ -4,5 +4,5 @@
 /.settings
 /.classpath
 .classpath
-/solr-home/solr/collection1/data/*
+solr-home/solr/collection1/data/
 /solr-home/logs/*

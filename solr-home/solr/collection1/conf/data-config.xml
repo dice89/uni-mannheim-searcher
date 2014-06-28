@@ -1,13 +1,20 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <dataConfig>  
   
-<dataSource type="JdbcDataSource" driver="com.mysql.jdbc.Driver" url="jdbc:mysql://localhost:3306/peoplesearch" user="root" password="abc" batchSize="1" />  
-    <document name="Person">  
+<dataSource type="JdbcDataSource" driver="com.mysql.jdbc.Driver" url="jdbc:mysql://localhost:3306/peoplesearch" user="root" password="" batchSize="1" />  
+    <document name="persons">  
   
-        <entity name="Person" query="SELECT * FROM Person">  
+        <entity name="person_data" query="SELECT * FROM Person">  
             <field column="id" name="id" />  
             <field column="firstNames" name="firstNames" /> 
-            <field column="lastName" name="lastName" />   
+            <field column="lastName" name="lastName" /> 
+             <field column="email" name="email" /> 
+            <field column="label" name="label" /> 
+            <field column="location_room" name="location_room"  /> 
+            <field column="location_street" name="location_street"/>
+            <field column="location_zip" name="location_zip" /> 
+            <field column="phoneNumber" name="phoneNumber" /> 
+            <field column="titles" name="titles"/>     
         </entity>  
   
     </document>  

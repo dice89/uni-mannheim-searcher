@@ -2,7 +2,8 @@
 <dataConfig>  
   
 <dataSource type="JdbcDataSource" driver="com.mysql.jdbc.Driver" url="jdbc:mysql://localhost:3306/peoplesearch" user="root" password="" batchSize="1" />  
-    <document name="persons">  
+
+    <document name="Person">  
   
         <entity name="person_data" query="SELECT * FROM Person">  
             <field column="id" name="id" />  

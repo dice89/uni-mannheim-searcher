@@ -44,7 +44,7 @@ public class LocalExtractionTest {
 			// System.out.println(input);
 			Person newPerson = new Person();
 			newPerson.tryExtract(input, "http://example.com");
-			newPerson.setUrl(input);
+			newPerson.setUrl(file.getAbsolutePath());
 			PersonDAO.savePerson(newPerson);
 			persons.add(newPerson);
 		}

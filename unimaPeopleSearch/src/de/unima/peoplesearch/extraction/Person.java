@@ -11,6 +11,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.Type;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
@@ -57,8 +58,12 @@ public class Person {
 	private String location_street;
 	private String location_room;
 	private String phoneNumber;
+	
+	@Type(type="text")
 	private String imageUrl;
 	private String email;
+	
+	@Type(type="text")
 	private String url;
 	
 

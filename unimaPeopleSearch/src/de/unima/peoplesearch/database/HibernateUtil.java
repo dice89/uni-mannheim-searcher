@@ -9,17 +9,26 @@ import org.hibernate.service.ServiceRegistry;
 import org.hibernate.service.ServiceRegistryBuilder;
 
 public class HibernateUtil {
-    public static Session getSession(){
-           Session sess = null;
-           Configuration config = new Configuration().configure();
-           ServiceRegistry serviceRegistry = null;
-           StandardServiceRegistryBuilder builder = new StandardServiceRegistryBuilder();
-           builder.applySettings(config.getProperties());
-           serviceRegistry = builder.build();
-           SessionFactory sFec = config.buildSessionFactory(serviceRegistry);
-           sess = sFec.openSession();
-           return sess;
+	
+    private static SessionFactory factory;
+    static {
+        Configuration config = new Configuration().configure();
+        ServiceRegistry serviceRegistry = null;
+        StandardServiceRegistryBuilder builder = new StandardServiceRegistryBuilder();
+        builder.applySettings(config.getProperties());
+        serviceRegistry = builder.build();
+        factory = config.buildSessionFactory(serviceRegistry);
     }
+
+    public static Session getSession() {
+        return factory.openSession();
+    }
+
+    // Call this during shutdown
+    public static void close() {
+        factory.close();
+    }
+
    
     public static void closeSession(Session sess){
            if(sess!=null){

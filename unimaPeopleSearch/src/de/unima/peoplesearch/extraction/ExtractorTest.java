@@ -6,7 +6,10 @@ package de.unima.peoplesearch.extraction;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
+
 import org.jsoup.Jsoup;
+
+import de.unima.peoplesearch.database.PersonDAO;
 
 /**
  * @author Michi
@@ -56,6 +59,7 @@ public class ExtractorTest {
 				if (newPerson.isPerson()) {
 					newPerson.setUrl(s);
 					persons.add(newPerson);
+					PersonDAO.savePerson(newPerson);
 				}
 				
 //				System.err.println(newPerson.getImageUrl());

@@ -8,8 +8,9 @@
         <entity name="person_data" query="SELECT * FROM Person">  
             <field column="id" name="id" />  
             <field column="firstNames" name="firstNames" /> 
+            <field column="url" name="url" /> 
             <field column="lastName" name="lastName" /> 
-             <field column="email" name="email" /> 
+            <field column="email" name="email" /> 
             <field column="label" name="label" /> 
             <field column="location_room" name="location_room"  /> 
             <field column="location_street" name="location_street"/>

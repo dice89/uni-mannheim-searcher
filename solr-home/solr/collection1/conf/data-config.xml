@@ -10,6 +10,7 @@
             <field column="firstNames" name="firstNames" /> 
             <field column="url" name="url" /> 
             <field column="lastName" name="lastName" /> 
+            <field column="imageUrl" name="imageUrl" /> 
             <field column="email" name="email" /> 
             <field column="label" name="label" /> 
             <field column="location_room" name="location_room"  /> 

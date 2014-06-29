@@ -126,6 +126,7 @@
     <field name="email" type="text_general" indexed="true" stored="true" /> 
     <field name="label" type="text_general" indexed="true" stored="true" />
     <field name="url" type="text_general" indexed="true" stored="true" />
+     <field name="imageurl" type="text_general" indexed="true" stored="true" />
     <field name="location_room" type="text_general" indexed="true" stored="true" /> 
      <field name="location_street" type="text_general" indexed="true" stored="true" />
      <field name="location_zip" type="text_general" indexed="true" stored="true" />

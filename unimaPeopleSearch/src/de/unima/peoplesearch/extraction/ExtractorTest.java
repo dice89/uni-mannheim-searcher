@@ -57,9 +57,20 @@ public class ExtractorTest {
 				newPerson.tryExtract(input, baseUrl);
 				
 				if (newPerson.isPerson()) {
-					newPerson.setUrl(s);
-					persons.add(newPerson);
-					PersonDAO.savePerson(newPerson);
+					if (newPerson.hasDuplicate(persons) == false) {
+						newPerson.setUrl(s);
+						persons.add(newPerson);
+						PersonDAO.savePerson(newPerson);
+					} else {
+						Person duplicate = newPerson.getDuplicate(persons);
+						if (newPerson.getFieldsNotNull() > duplicate.getFieldsNotNull()){
+							newPerson.setUrl(s);
+							persons.add(newPerson);
+							persons.remove(duplicate);
+							PersonDAO.savePerson(newPerson);
+							PersonDAO.deletePerson(duplicate);
+						} else continue;
+					}
 				}
 				
 //				System.err.println(newPerson.getImageUrl());

@@ -3,6 +3,7 @@
  */
 package de.unima.peoplesearch.extraction;
 
+import java.util.ArrayList;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -65,6 +66,8 @@ public class Person {
 	
 	@Type(type="text")
 	private String url;
+	
+	private int fieldsNotNull = 0;
 	
 
 	//private Empty Constructor for JPA
@@ -247,6 +250,42 @@ public class Person {
 
 	public boolean isPerson() {
 		return this.firstNames.length() > 1 && this.lastName.length() > 1 && (this.phoneNumber != null);
+	}
+	
+	public boolean hasDuplicate(ArrayList<Person> list) {
+		for (Person person : list) {
+			if (this.firstNames == person.firstNames && this.lastName == person.lastName) {
+				return true;
+			}
+		}
+		return false;
+	}
+	
+	public Person getDuplicate(ArrayList<Person> list) {
+		Person duplicate = new Person();
+		for (Person person : list) {
+			if (this.firstNames == person.firstNames && this.lastName == person.lastName) {
+				duplicate = person;
+			}
+		}
+		return duplicate;
+	}
+	
+	public int getFieldsNotNull() {
+		ArrayList<String> properties = new ArrayList<String>();
+		properties.add(email);
+		properties.add(phoneNumber);
+		properties.add(location_room);
+		properties.add(location_street);
+		properties.add(location_zip);
+		properties.add(titles);
+		properties.add(imageUrl);
+		
+		for (String s : properties) {
+			if (s != null) {fieldsNotNull++;}
+		}
+		
+		return fieldsNotNull;
 	}
 
 	@Override

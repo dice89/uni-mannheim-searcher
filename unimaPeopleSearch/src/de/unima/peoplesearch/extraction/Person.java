@@ -284,6 +284,8 @@ public class Person {
 		return duplicate;
 	}
 	
+
+	
 	public int getFieldsNotNull() {
 		ArrayList<String> properties = new ArrayList<String>();
 		properties.add(email);

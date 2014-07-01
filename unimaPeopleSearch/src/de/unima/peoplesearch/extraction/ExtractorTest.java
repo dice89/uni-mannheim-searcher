@@ -42,7 +42,7 @@ public class ExtractorTest {
 		 */
 		HtmlExtractor ex = new HtmlExtractor();
 		ArrayList<String> list = ex.readLinks();
-		final int MAX = 1000;
+		final int MAX = 10000;
 		int counter = 1;
 		int timeoutCounter = 0;
 		for (String s : list) {

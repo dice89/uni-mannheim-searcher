@@ -124,11 +124,11 @@ public class Person {
 		// Look for contact details in all elements
 		elements = content.select("*");
 		for (Element element : elements) {
-			// Skipp any elements with to less text
+			// Skip any elements with too little text
 			if (element.ownText().length() < 5)
 				continue;
 
-			// Try extract email from href
+			// Try to extract email from href
 			if (element.hasAttr("href")) {
 
 				String relHref = element.attr("href");
@@ -213,7 +213,7 @@ public class Person {
 		if (email != null) {
 			this.email = this.email.replace("AT", "@");
 			this.email = this.email.toLowerCase().replace(" ", "");
-			this.email = this.email.replace("[at]", "@").replace("(at)", "@").replace("{at}", "@");
+			this.email = this.email.replace("[at]", "@").replace("(at)", "@").replace("{at}", "@").replace("[@]", "@");
 		}
 
 	}
@@ -226,7 +226,20 @@ public class Person {
 		for (int i = 0; i < parts.length; i++) {
 			if (parts[i].startsWith("("))
 				continue;
-			if (parts[i].endsWith("."))
+			if ((parts[i].contains(".") && parts[i].length() > 2) || 
+					parts[i].toLowerCase().matches(".*professor.*") || 
+					parts[i].toLowerCase().matches(".*doktor.*") || 
+					parts[i].toLowerCase().matches(".*doctor.*") || 
+					parts[i].toLowerCase().matches(".*diplom.*") || 
+					parts[i].toLowerCase().matches(".*dozent.*") || 
+					parts[i].matches("PD") || 
+					parts[i].toLowerCase().matches("ph.?d") || 
+					parts[i].toLowerCase().matches("junior.*") ||
+					parts[i].matches("RiBFH") ||
+					parts[i].toLowerCase().matches("betriebswirt.*") ||
+					parts[i].toLowerCase().matches(".*informatik.*") || 
+					parts[i].toLowerCase().matches("diplom.*") ||
+					parts[i].toLowerCase().matches("student.*"))
 				this.titles += parts[i] + " ";
 			else
 				names += parts[i] + " ";
@@ -242,7 +255,7 @@ public class Person {
 			}
 		}
 
-		// Some sanatizing
+		// Some sanitizing
 		this.firstNames = this.firstNames.replace(",", "").trim();
 		this.lastName = this.lastName.replace(",", "").trim();
 

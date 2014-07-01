@@ -57,6 +57,7 @@ public class ExtractorTest {
 				newPerson.tryExtract(input, baseUrl);
 				
 				if (newPerson.isPerson()) {
+					if (newPerson.getFirstNames().contains("by ") || newPerson.getFirstNames().contains("von ")) continue;
 					if (newPerson.hasDuplicate(persons) == false) {
 						newPerson.setUrl(s);
 						persons.add(newPerson);

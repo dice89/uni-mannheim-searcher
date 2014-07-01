@@ -3,6 +3,7 @@
  */
 package de.unima.peoplesearch.extraction;
 
+import java.util.ArrayList;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -66,6 +67,8 @@ public class Person {
 	@Type(type="text")
 	private String url;
 	
+	private int fieldsNotNull = 0;
+	
 
 	//private Empty Constructor for JPA
 	public Person(){
@@ -121,11 +124,11 @@ public class Person {
 		// Look for contact details in all elements
 		elements = content.select("*");
 		for (Element element : elements) {
-			// Skipp any elements with to less text
+			// Skip any elements with too little text
 			if (element.ownText().length() < 5)
 				continue;
 
-			// Try extract email from href
+			// Try to extract email from href
 			if (element.hasAttr("href")) {
 
 				String relHref = element.attr("href");
@@ -210,7 +213,7 @@ public class Person {
 		if (email != null) {
 			this.email = this.email.replace("AT", "@");
 			this.email = this.email.toLowerCase().replace(" ", "");
-			this.email = this.email.replace("[at]", "@").replace("(at)", "@").replace("{at}", "@");
+			this.email = this.email.replace("[at]", "@").replace("(at)", "@").replace("{at}", "@").replace("[@]", "@");
 		}
 
 	}
@@ -223,7 +226,20 @@ public class Person {
 		for (int i = 0; i < parts.length; i++) {
 			if (parts[i].startsWith("("))
 				continue;
-			if (parts[i].endsWith("."))
+			if ((parts[i].contains(".") && parts[i].length() > 2) || 
+					parts[i].toLowerCase().matches(".*professor.*") || 
+					parts[i].toLowerCase().matches(".*doktor.*") || 
+					parts[i].toLowerCase().matches(".*doctor.*") || 
+					parts[i].toLowerCase().matches(".*diplom.*") || 
+					parts[i].toLowerCase().matches(".*dozent.*") || 
+					parts[i].matches("PD") || 
+					parts[i].toLowerCase().matches("ph.?d") || 
+					parts[i].toLowerCase().matches("junior.*") ||
+					parts[i].matches("RiBFH") ||
+					parts[i].toLowerCase().matches("betriebswirt.*") ||
+					parts[i].toLowerCase().matches(".*informatik.*") || 
+					parts[i].toLowerCase().matches("diplom.*") ||
+					parts[i].toLowerCase().matches("student.*"))
 				this.titles += parts[i] + " ";
 			else
 				names += parts[i] + " ";
@@ -239,7 +255,7 @@ public class Person {
 			}
 		}
 
-		// Some sanatizing
+		// Some sanitizing
 		this.firstNames = this.firstNames.replace(",", "").trim();
 		this.lastName = this.lastName.replace(",", "").trim();
 
@@ -247,6 +263,42 @@ public class Person {
 
 	public boolean isPerson() {
 		return this.firstNames.length() > 1 && this.lastName.length() > 1 && (this.phoneNumber != null);
+	}
+	
+	public boolean hasDuplicate(ArrayList<Person> list) {
+		for (Person person : list) {
+			if (this.firstNames.toLowerCase().equals(person.firstNames.toLowerCase()) && this.lastName.toLowerCase().equals(person.lastName.toLowerCase())) {
+				return true;
+			}
+		}
+		return false;
+	}
+	
+	public Person getDuplicate(ArrayList<Person> list) {
+		Person duplicate = new Person();
+		for (Person person : list) {
+			if (this.firstNames.toLowerCase().equals(person.firstNames.toLowerCase()) && this.lastName.toLowerCase().equals(person.lastName.toLowerCase())) {
+				duplicate = person;
+			}
+		}
+		return duplicate;
+	}
+	
+	public int getFieldsNotNull() {
+		ArrayList<String> properties = new ArrayList<String>();
+		properties.add(email);
+		properties.add(phoneNumber);
+		properties.add(location_room);
+		properties.add(location_street);
+		properties.add(location_zip);
+		properties.add(titles);
+		properties.add(imageUrl);
+		
+		for (String s : properties) {
+			if (s != null) {fieldsNotNull++;}
+		}
+		
+		return fieldsNotNull;
 	}
 
 	@Override

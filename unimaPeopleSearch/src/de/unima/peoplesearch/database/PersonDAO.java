@@ -22,7 +22,7 @@ public class PersonDAO {
 			session.beginTransaction();
 			
 				session.delete(p);
-			
+				
 			session.getTransaction().commit();
 			HibernateUtil.closeSession(session);
 			return p;

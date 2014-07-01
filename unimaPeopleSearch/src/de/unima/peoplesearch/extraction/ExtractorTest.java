@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import org.jsoup.Jsoup;
 
 import de.unima.peoplesearch.database.PersonDAO;
+import de.unima.peoplesearch.extraction.qualitychecks.NameChecker;
 
 /**
  * @author Michi
@@ -22,6 +23,8 @@ public class ExtractorTest {
 	 * @throws IOException
 	 */
 	public static void main(String[] args) throws IOException {
+		
+		CandidatePruner cp = new CandidatePruner();
 		// String url =
 		// "http://dws.informatik.uni-mannheim.de/en/people/professors/prof-dr-simone-paolo-ponzetto/";
 		// Document doc = Jsoup.parse(new URL(url).openStream(), "ISO-8859-1",
@@ -56,6 +59,13 @@ public class ExtractorTest {
 				
 				newPerson.tryExtract(input, baseUrl);
 				
+				
+				if (! CandidatePruner.checkCandidate(newPerson)){
+					
+					System.err.println("NO Person : "+newPerson.getFirstNames()+"--> continue");
+					continue;
+				}
+				System.err.println(newPerson.getFirstNames());
 				if (newPerson.isPerson()) {
 					if (newPerson.getFirstNames().contains("by ") || newPerson.getFirstNames().contains("von ")) continue;
 					if (newPerson.hasDuplicate(persons) == false) {

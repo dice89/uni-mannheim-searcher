@@ -254,7 +254,7 @@ public class Person {
 	
 	public boolean hasDuplicate(ArrayList<Person> list) {
 		for (Person person : list) {
-			if (this.firstNames == person.firstNames && this.lastName == person.lastName) {
+			if (this.firstNames.toLowerCase().equals(person.firstNames.toLowerCase()) && this.lastName.toLowerCase().equals(person.lastName.toLowerCase())) {
 				return true;
 			}
 		}
@@ -264,7 +264,7 @@ public class Person {
 	public Person getDuplicate(ArrayList<Person> list) {
 		Person duplicate = new Person();
 		for (Person person : list) {
-			if (this.firstNames == person.firstNames && this.lastName == person.lastName) {
+			if (this.firstNames.toLowerCase().equals(person.firstNames.toLowerCase()) && this.lastName.toLowerCase().equals(person.lastName.toLowerCase())) {
 				duplicate = person;
 			}
 		}

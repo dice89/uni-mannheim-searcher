@@ -56,16 +56,18 @@
                   <span id="search_concept">Field Search</span> <span class="caret"></span>
                 </button>
                 <ul class="dropdown-menu" role="menu">
-                  <li><a href="#contains">First Name </a></li>
-                  <li><a href="#its_equal">Last Name </a></li>
-                  <li><a href="#greather_than">Email </a></li>
-                  <li><a href="#less_than">Phone </a></li>
-                  <li><a href="#location">Location </a></li>
+                  <li><a href="#firstNames">First Name </a></li>
+                  <li><a href="#lastName">Last Name </a></li>
+                  <li><a href="#email">Email </a></li>
+                  <li><a href="#phoneNumber">Phone </a></li>
+                  <li><a href="#location_street">Location </a></li>
                   <li class="divider"></li>
-                  <li><a href="#all">Anything</a></li>
+                  <li><a href="#*">Anything</a></li>
                 </ul>
+
+
               </div>
-              <input type="hidden" name="search_param" value="all" id="search_param">         
+              <input type="hidden" name="search_param" value="*" id="search_param">         
               <input type="text" id="searchInput" class="form-control" name="q" placeholder="Enter search term ...">
               <span class="input-group-btn">
                 <button id="btnSearch" class="btn btn-default" type="button"><span class="glyphicon glyphicon-search"></span></button>
@@ -82,21 +84,26 @@
 
     <script id="person-template" type="text/x-handlebars-template">
       {{#docs}} 
-      <div class="row">
+      <div class="row search-result">
         <div class="col-xs-12 col-sm-12 col-md-12">
           <div class="well">
             <div class="row">
               <div class="col-sm-3 col-md-2">
-                <img src="{{imageurl}}" alt="" class="img-rounded img-responsive" />
+                <img src="{{#if imageurl}}{{imageurl}}{{else}}http://hubcaresupport.co.uk/sites/default/files/Default_Profile.jpg{{/if}}" alt="picture" class="img-rounded img-responsive" />
               </div>
               <div class="col-sm-6 col-md-8">
                 <h4>
                   {{label}}</h4>
                   <p>
+                  {{#if email}}
                     <i class="glyphicon glyphicon-envelope"></i>{{email}}
                     <br />
+                  {{/if}}
+                  
+                  {{#if phoneNumber}}
                     <i class="glyphicon glyphicon-earphone"></i></i>{{phoneNumber}}
                     <br />
+                  {{/if}}
                     <i class="glyphicon glyphicon-map-marker"></i>{{location_room}} {{{location_street}}} {{location_zip}}
                     <br />
 
@@ -149,7 +156,11 @@
       //Handle search
       $( "#btnSearch" ).click(function() {
         $('#results').empty();
-        var query = "&q=" + $("#searchInput").val();
+        var field = $("#search_param").val();
+        if (field == "*") field = ""
+        	else field +=":";
+        var query = "&q=" + field + $("#searchInput").val();
+
         // alert(query);
 
         //Do backend call

@@ -60,15 +60,15 @@ public class ExtractorTest {
 					if (newPerson.hasDuplicate(persons) == false) {
 						newPerson.setUrl(s);
 						persons.add(newPerson);
-//						PersonDAO.savePerson(newPerson);
+						PersonDAO.savePerson(newPerson);
 					} else {
 						Person duplicate = newPerson.getDuplicate(persons);
 						if (newPerson.getFieldsNotNull() > duplicate.getFieldsNotNull()){
 							newPerson.setUrl(s);
 							persons.add(newPerson);
 							persons.remove(duplicate);
-//							PersonDAO.savePerson(newPerson);
-//							PersonDAO.deletePerson(duplicate);
+							PersonDAO.savePerson(newPerson);
+							PersonDAO.deletePerson(duplicate);
 						} else continue;
 					}
 				}

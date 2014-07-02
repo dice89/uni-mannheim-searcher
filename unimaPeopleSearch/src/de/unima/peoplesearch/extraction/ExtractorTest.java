@@ -45,7 +45,7 @@ public class ExtractorTest {
 		 */
 		HtmlExtractor ex = new HtmlExtractor();
 		ArrayList<String> list = ex.readLinks();
-		final int MAX = 10000;
+		final int MAX = 1000;
 		int counter = 1;
 		int timeoutCounter = 0;
 		for (String s : list) {
@@ -62,7 +62,7 @@ public class ExtractorTest {
 				
 				if (! CandidatePruner.checkCandidate(newPerson)){
 					
-					System.err.println("NO Person : "+newPerson.getFirstNames()+"--> continue");
+					System.err.println("Not a Person : "+newPerson.getFirstNames()+"--> continue");
 					continue;
 				}
 				System.err.println(newPerson.getFirstNames());
@@ -71,15 +71,12 @@ public class ExtractorTest {
 					if (newPerson.hasDuplicate(persons) == false) {
 						newPerson.setUrl(s);
 						persons.add(newPerson);
-						PersonDAO.savePerson(newPerson);
 					} else {
 						Person duplicate = newPerson.getDuplicate(persons);
 						if (newPerson.getFieldsNotNull() > duplicate.getFieldsNotNull()){
 							newPerson.setUrl(s);
 							persons.add(newPerson);
 							persons.remove(duplicate);
-							PersonDAO.savePerson(newPerson);
-							PersonDAO.deletePerson(duplicate);
 						} else continue;
 					}
 				}
@@ -89,6 +86,10 @@ public class ExtractorTest {
 				timeoutCounter++;
 				e.printStackTrace();
 			}
+		}
+		
+		for (Person p : persons) {
+			PersonDAO.savePerson(p);
 		}
 
 		int cPerson = 0;

@@ -11,11 +11,13 @@ import org.jsoup.Jsoup;
 
 import de.unima.peoplesearch.database.PersonDAO;
 import de.unima.peoplesearch.extraction.qualitychecks.NameChecker;
+import de.unima.peoplesearch.extraction.qualitychecks.NamedEntityChecker;
 
 /**
  * @author Michi
  * 
  */
+@Deprecated
 public class ExtractorTest {
 
 	/**
@@ -25,6 +27,8 @@ public class ExtractorTest {
 	public static void main(String[] args) throws IOException {
 		
 		CandidatePruner cp = new CandidatePruner();
+		
+		NamedEntityChecker neChecker = new NamedEntityChecker();
 		// String url =
 		// "http://dws.informatik.uni-mannheim.de/en/people/professors/prof-dr-simone-paolo-ponzetto/";
 		// Document doc = Jsoup.parse(new URL(url).openStream(), "ISO-8859-1",
@@ -57,7 +61,7 @@ public class ExtractorTest {
 				Person newPerson = new Person();
 				String baseUrl = s.replaceAll("/[a-zA-Z0-9]+\\.htm[l]?", "/");
 				
-				newPerson.tryExtract(input, baseUrl);
+				newPerson.tryExtract(input, baseUrl,neChecker);
 				
 				
 				if (! CandidatePruner.checkCandidate(newPerson)){
@@ -66,20 +70,7 @@ public class ExtractorTest {
 					continue;
 				}
 				System.err.println(newPerson.getFirstNames());
-				if (newPerson.isPerson()) {
-					if (newPerson.getFirstNames().contains("by ") || newPerson.getFirstNames().contains("von ")) continue;
-					if (newPerson.hasDuplicate(persons) == false) {
-						newPerson.setUrl(s);
-						persons.add(newPerson);
-					} else {
-						Person duplicate = newPerson.getDuplicate(persons);
-						if (newPerson.getFieldsNotNull() > duplicate.getFieldsNotNull()){
-							newPerson.setUrl(s);
-							persons.add(newPerson);
-							persons.remove(duplicate);
-						} else continue;
-					}
-				}
+			
 				
 //				System.err.println(newPerson.getImageUrl());
 			} catch (Exception e) {

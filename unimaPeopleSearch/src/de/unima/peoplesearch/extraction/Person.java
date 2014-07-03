@@ -4,6 +4,7 @@
 package de.unima.peoplesearch.extraction;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -18,6 +19,8 @@ import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.nodes.Entities.EscapeMode;
 import org.jsoup.select.Elements;
+
+import de.unima.peoplesearch.extraction.qualitychecks.NamedEntityChecker;
 
 /**
  * @author Michi, Alexander, Maxim
@@ -97,7 +100,7 @@ public class Person {
 
 
 
-	public void tryExtract(String input, String baseUrl) {
+	public void tryExtract(String input, String baseUrl, NamedEntityChecker neChecker) throws NoPersonDataFoundException {
 
 		Document doc = Jsoup.parse(input, baseUrl);
 
@@ -110,10 +113,16 @@ public class Person {
 
 		// Get page title
 		Elements headings = content.select("h1, h2, h3");
+		int neFoundCount = 0;
 		for (int i = 0; i < headings.size(); i++) {
 			if (headings.get(i).text().split(" ").length > 1) {
 				String text = headings.get(i).text().replace(Person.BR_TAG, "");
 				// System.err.println(headings.get(i).text());
+				
+				if( neChecker.containsNERPerson(text)) {
+					System.out.println(text);
+					neFoundCount++;
+				}
 				this.testForName(text);
 				if (this.label.length() < 1)
 					this.label = text.trim();
@@ -121,6 +130,11 @@ public class Person {
 				break;
 			}
 		}
+		if(neFoundCount == 0){
+			throw new NoPersonDataFoundException();
+		}
+		
+		
 		// Look for contact details in all elements
 		elements = content.select("*");
 		for (Element element : elements) {
@@ -265,8 +279,8 @@ public class Person {
 		return this.firstNames.length() > 1 && this.lastName.length() > 1 && (this.phoneNumber != null);
 	}
 	
-	public boolean hasDuplicate(ArrayList<Person> list) {
-		for (Person person : list) {
+	public boolean hasDuplicate(List<Person> persons) {
+		for (Person person : persons) {
 			if (this.firstNames.toLowerCase().equals(person.firstNames.toLowerCase()) && this.lastName.toLowerCase().equals(person.lastName.toLowerCase())) {
 				return true;
 			}
@@ -274,9 +288,9 @@ public class Person {
 		return false;
 	}
 	
-	public Person getDuplicate(ArrayList<Person> list) {
+	public Person getDuplicate(List<Person> persons) {
 		Person duplicate = new Person();
-		for (Person person : list) {
+		for (Person person : persons) {
 			if (this.firstNames.toLowerCase().equals(person.firstNames.toLowerCase()) && this.lastName.toLowerCase().equals(person.lastName.toLowerCase())) {
 				duplicate = person;
 			}

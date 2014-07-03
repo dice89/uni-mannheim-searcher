@@ -18,6 +18,7 @@ import de.unima.peoplesearch.database.PersonDAO;
  * @author Michi
  * 
  */
+@Deprecated
 public class LocalExtractionTest {
 
 
@@ -43,7 +44,7 @@ public class LocalExtractionTest {
 			input = input.replaceAll("(?i)<br[^>]*>", Person.BR_TAG);
 			// System.out.println(input);
 			Person newPerson = new Person();
-			newPerson.tryExtract(input, "http://example.com");
+			//newPerson.tryExtract(input, "http://example.com");
 			newPerson.setUrl(file.getAbsolutePath());
 			PersonDAO.savePerson(newPerson);
 			persons.add(newPerson);

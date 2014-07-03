@@ -4,22 +4,24 @@ import java.io.IOException;
 
 import de.unima.peoplesearch.extraction.Person;
 
-public class EnglishGivenNameCheck extends QualityCheck {
+public class InternationalNameCheck extends QualityCheck {
 	
+	
+	// name list form http://www.netzmafia.de/software/net-tools/wordlists/names.txt
 	private NameChecker checker;
 
-	public EnglishGivenNameCheck(QualityCheck next) {
+	public InternationalNameCheck(QualityCheck next) {
 		super(next);
 		this.initNameChecker();
 	}
 
-	public EnglishGivenNameCheck() {
+	public InternationalNameCheck() {
 		this.initNameChecker();
 	}
 	
 	private void initNameChecker(){
 		try {
-			this.checker = new NameChecker("data/englishgivennames.txt");
+			this.checker = new NameChecker("data/internationalnames.txt");
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -33,12 +35,13 @@ public class EnglishGivenNameCheck extends QualityCheck {
 		int correctCounter = 0;
 		for (String name : firstNames) {
 			if(checker.containsNames(name)){
-				correctCounter++;
 				System.out.println(name);
+				correctCounter++;
 			}
 		}
+		System.out.println("INTERNATIONAL CORRECT COUNTER"+correctCounter );
 		double ratio =  ((double)((double)correctCounter)/ ((double) firstNames.length));
-		return (ratio >= 0.40);
+		return (ratio >= 0.20);
 	}
 
 }

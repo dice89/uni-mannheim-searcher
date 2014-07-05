@@ -29,7 +29,7 @@ public class PersonExtractionTask extends Thread {
 				docu = getDocumentforPerson(link);
 			
 			}catch (Exception e){
-				System.out.println("some error occured in the worker");
+				System.err.println("some error occured in the worker");
 			}	
 			if(docu == null) continue;
 		

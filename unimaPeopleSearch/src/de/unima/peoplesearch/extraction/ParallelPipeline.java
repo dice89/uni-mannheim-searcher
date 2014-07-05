@@ -9,6 +9,11 @@ public class ParallelPipeline extends Pipeline {
 	private int curr_link = 0;
 	private int calledBackWorkers = 0;
 
+	/**
+	 * Initialize pipeline
+	 * @param maxLinks
+	 * @param numberOfWorker
+	 */
 	public ParallelPipeline(int maxLinks, int numberOfWorker) {
 		super(maxLinks);
 		this.numberOfWorker = numberOfWorker;
@@ -36,23 +41,27 @@ public class ParallelPipeline extends Pipeline {
 
 
 	@Override
-	public void extractPeople() throws IOException {
+	public void extractPeople() throws IOException, InterruptedException {
 		for(int i = 0; i < numberOfWorker; i++){
 			PersonExtractionTask pet = new PersonExtractionTask(this);
 			pet.start();
 		}
 		//busy waiting for all workers
 		while(calledBackWorkers < numberOfWorker){
-			System.out.println(calledBackWorkers);
+			Thread.sleep(1000);
+			System.out.println(curr_link);
 		}
 		System.out.println("Execute post processing steps");
 	}
 	
 	public static void main(String args[]){
-		ParallelPipeline pp = new ParallelPipeline(100000, 100);
+		ParallelPipeline pp = new ParallelPipeline(Integer.MAX_VALUE, 100);
 		try {
 			pp.startExtraction();
 		} catch (IOException e) {
+			e.printStackTrace();
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}

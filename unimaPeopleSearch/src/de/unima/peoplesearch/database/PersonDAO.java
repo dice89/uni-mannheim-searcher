@@ -16,12 +16,11 @@ public class PersonDAO {
 		
 		try{
 			session.save(p);
+			session.getTransaction().commit();
 		}catch (Exception e){
 			System.out.println("not saved");
 		}
 	
-
-		session.getTransaction().commit();
 		HibernateUtil.closeSession(session);
 		return p;
 	}

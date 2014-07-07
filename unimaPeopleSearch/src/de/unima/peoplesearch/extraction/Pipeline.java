@@ -27,8 +27,9 @@ public class Pipeline {
 	/**
 	 * Method that triggers the overall Extraciton Pipeline
 	 * @throws IOException
+	 * @throws InterruptedException 
 	 */
-	public void startExtraction() throws IOException{
+	public void startExtraction() throws IOException, InterruptedException{
 	
 		this.links = getLinks();
 		//extraction Step
@@ -88,8 +89,9 @@ public class Pipeline {
 	 * Extracts People from a given set of links 
 	 * @param links
 	 * @throws IOException
+	 * @throws InterruptedException 
 	 */
-	protected void extractPeople() throws IOException{
+	protected void extractPeople() throws IOException, InterruptedException{
 		
 		Person newPerson;
 		int counter =0;
@@ -248,6 +250,9 @@ public class Pipeline {
 		try {
 			p.startExtraction();
 		} catch (IOException e) {
+			e.printStackTrace();
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}

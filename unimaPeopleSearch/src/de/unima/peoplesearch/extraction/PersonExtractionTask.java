@@ -29,7 +29,7 @@ public class PersonExtractionTask extends Thread {
 				docu = getDocumentforPerson(link);
 			
 			}catch (Exception e){
-				System.out.println("some error occured in the worker");
+				System.err.println("some error occured in the worker");
 			}	
 			if(docu == null) continue;
 		
@@ -60,7 +60,7 @@ public class PersonExtractionTask extends Thread {
 	public String getDocumentforPerson(String link) {
 		String input = null;
 		try {
-			input = Jsoup.connect(link).ignoreContentType(true).ignoreHttpErrors(true).timeout(1000).get().toString();
+			input = Jsoup.connect(link).ignoreContentType(true).ignoreHttpErrors(true).timeout(10*1000).get().toString();
 			input = input.replaceAll("(?i)<br[^>]*>", " br2n ");			
 			
 		} catch (IOException e) {

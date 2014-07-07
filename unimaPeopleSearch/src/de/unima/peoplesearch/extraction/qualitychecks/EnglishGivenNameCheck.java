@@ -19,7 +19,7 @@ public class EnglishGivenNameCheck extends QualityCheck {
 	
 	private void initNameChecker(){
 		try {
-			this.checker = new NameChecker("data/englishgivennames.txt");
+			this.checker = new NameChecker("data/names.txt");
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -32,13 +32,17 @@ public class EnglishGivenNameCheck extends QualityCheck {
 		
 		int correctCounter = 0;
 		for (String name : firstNames) {
-			if(checker.containsNames(name)){
+			if(checker.containsNames(normalizeName(name))){
 				correctCounter++;
 				System.out.println(name);
 			}
 		}
 		double ratio =  ((double)((double)correctCounter)/ ((double) firstNames.length));
 		return (ratio >= 0.40);
+	}
+	
+	public String normalizeName(String word){
+		return word.replace("ü", "u").replace("ä", "a").replace("ö", "o");
 	}
 
 }

@@ -50,6 +50,8 @@ public class LocalExtractionTest {
 				newPerson.tryExtract(input, "http://example.com", new NamedEntityChecker());
 				newPerson.setUrl(file.getAbsolutePath());
 //			PersonDAO.savePerson(newPerson);
+				
+				System.out.println(CandidatePruner.checkCandidate(newPerson));
 				persons.add(newPerson);
 			} catch (Exception e) {
 				// TODO Auto-generated catch block

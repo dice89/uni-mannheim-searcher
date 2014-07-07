@@ -28,7 +28,7 @@ public class NamedEntityChecker {
 	
 	public boolean containsNERPerson(String heading){
 		Annotation annotation = new Annotation(heading);
-		
+		System.out.println(heading);
 		pipeline.annotate(annotation);
 	    List<CoreMap> sentences = annotation.get(SentencesAnnotation.class);
 		  for(CoreMap sentence: sentences) {

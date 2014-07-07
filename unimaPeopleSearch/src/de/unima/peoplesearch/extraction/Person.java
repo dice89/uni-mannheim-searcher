@@ -104,11 +104,12 @@ public class Person {
 
 
 	public void tryExtract(String input, String baseUrl, NamedEntityChecker neChecker) throws NoPersonDataFoundException {
-
+		input = input.replace("ä","a").replace("ü", "u").replace("ö", "o");
 		Document doc = Jsoup.parse(input, baseUrl);
 
 		doc.outputSettings().charset("ISO-8859-1");
 		doc.outputSettings().escapeMode(EscapeMode.xhtml);
+		
 		
 		// Clean the document.
 //		doc = new Cleaner(Whitelist.none()).clean(doc);

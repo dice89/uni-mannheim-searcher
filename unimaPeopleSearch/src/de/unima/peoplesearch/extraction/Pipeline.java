@@ -12,21 +12,27 @@ import de.unima.peoplesearch.extraction.qualitychecks.NamedEntityChecker;
 public class Pipeline {
 	//TODO implement clean pipeline and remove ugly coding
 	private NamedEntityChecker neChecker = new NamedEntityChecker();
-	private int maxLinks;
-	private List<Person> persons;
+	protected int maxLinks;
+	protected List<Person> persons;
+	protected List<String> links;
+	
 	public Pipeline(int maxLinks){
 		persons = new ArrayList<Person>();
 		this.maxLinks = maxLinks;
 	}
+	
+
+
 	
 	/**
 	 * Method that triggers the overall Extraciton Pipeline
 	 * @throws IOException
 	 */
 	public void startExtraction() throws IOException{
-		ArrayList<String> links =getLinks();
+	
+		this.links = getLinks();
 		//extraction Step
-		extractPeople(links);
+		extractPeople();
 		
 		savePersonEntitiesToDB();
 		
@@ -53,7 +59,7 @@ public class Pipeline {
 	 * Get the links from the Html
 	 * @return
 	 */
-	public ArrayList<String> getLinks(){
+	private ArrayList<String> getLinks(){
 		HtmlExtractor ex = new HtmlExtractor();
 		return ex.readLinks();
 	}
@@ -65,7 +71,7 @@ public class Pipeline {
 	 * @return
 	 * @throws IOException
 	 */
-	public String getDocumentforPerson(String link) {
+	private String getDocumentforPerson(String link) {
 		String input = null;
 		try {
 			input = Jsoup.connect(link).ignoreContentType(true).ignoreHttpErrors(true).timeout(1000).get().toString();
@@ -83,7 +89,8 @@ public class Pipeline {
 	 * @param links
 	 * @throws IOException
 	 */
-	public void extractPeople(ArrayList<String> links) throws IOException{
+	protected void extractPeople() throws IOException{
+		
 		Person newPerson;
 		int counter =0;
 		for (String link : links) {
@@ -95,6 +102,7 @@ public class Pipeline {
 		
 			newPerson = extractPerson(document,baseUrl);
 			if(onTheFlyPruning(newPerson)){
+				newPerson.setUrl(link);
 				this.handleDuplicate(newPerson);
 			}
 		}
@@ -135,11 +143,11 @@ public class Pipeline {
 		}
 	}
 	
-	public void handleDuplicate(Person p){
+	public synchronized void handleDuplicate(Person p){
 		if (p.isPerson()) {
 			
 			if (!p.hasDuplicate(persons)) {
-				//p.setUrl(s);
+				
 				System.out.println("added person forreal");
 				persons.add(p);
 			} else {
@@ -151,6 +159,7 @@ public class Pipeline {
 				} 
 			}
 		}
+		notifyAll();
 	}
 	
 	/** Saves a Person to the Database
@@ -171,16 +180,7 @@ public class Pipeline {
 	public void printPerson(Person p){
 		System.out.println(p.toString());
 	}
-	
-	public static void main (String args[]){
-		Pipeline p = new Pipeline(100);
-		
-		try {
-			p.startExtraction();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-	}
+
 	/**
 	 * Prints summary of data extracted
 	 */
@@ -240,5 +240,15 @@ public class Pipeline {
 		System.out.println("Images-%: " + (double) cImage / persons.size());
 
 		
+	}
+	
+	public static void main (String args[]){
+		Pipeline p = new Pipeline(10000);
+		
+		try {
+			p.startExtraction();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 }

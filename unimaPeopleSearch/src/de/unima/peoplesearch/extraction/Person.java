@@ -19,6 +19,8 @@ import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.nodes.Entities.EscapeMode;
 import org.jsoup.select.Elements;
+import org.jsoup.safety.Cleaner;
+import org.jsoup.safety.Whitelist;
 
 import de.unima.peoplesearch.extraction.qualitychecks.NamedEntityChecker;
 
@@ -31,7 +33,8 @@ import de.unima.peoplesearch.extraction.qualitychecks.NamedEntityChecker;
 public class Person {
 
 	public static final Pattern EMAIL_REGEX = Pattern.compile(
-			"[A-Z0-9._%+-]*[\\s\\xA0]*(@|[\\(\\[]?at[\\)\\]]?)[\\s\\xA0]*[A-Z0-9.-]+\\.[A-Z]{2,6}",
+//			"[A-Z0-9._%+-]*[\\s\\xA0]*(@|[\\(\\[]?at[\\)\\]]?)[\\s\\xA0]*[A-Z0-9.-]+\\.[A-Z]{2,6}",
+			"[A-Z0-9._%+-]*[\\s\\xA0]*(@|\\sat\\s|\\(at\\)|\\{at\\}|\\[at\\]|<at>|\\Q&lt;at&gt;\\E])[\\s\\xA0]*[A-Z0-9.-]+\\.[A-Z]{2,6}",
 			Pattern.CASE_INSENSITIVE);// (\\(at\\))?
 
 	public static final Pattern PHONE_REGEX = Pattern
@@ -106,6 +109,9 @@ public class Person {
 
 		doc.outputSettings().charset("ISO-8859-1");
 		doc.outputSettings().escapeMode(EscapeMode.xhtml);
+		
+		// Clean the document.
+//		doc = new Cleaner(Whitelist.none()).clean(doc);
 
 		Elements elements;
 
@@ -227,7 +233,7 @@ public class Person {
 		if (email != null) {
 			this.email = this.email.replace("AT", "@");
 			this.email = this.email.toLowerCase().replace(" ", "");
-			this.email = this.email.replace("[at]", "@").replace("(at)", "@").replace("{at}", "@").replace("[@]", "@");
+			this.email = this.email.replace("[at]", "@").replace("(at)", "@").replace("{at}", "@").replace("[@]", "@").replace("<@>", "@");
 		}
 
 	}

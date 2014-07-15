@@ -13,6 +13,7 @@ import com.google.common.base.Charsets;
 import com.google.common.io.Resources;
 
 import de.unima.peoplesearch.database.PersonDAO;
+import de.unima.peoplesearch.extraction.qualitychecks.NamedEntityChecker;
 
 /**
  * @author Michi
@@ -26,6 +27,7 @@ public class LocalExtractionTest {
 	/**
 	 * @param args
 	 * @throws IOException
+	 * @throws NoPersonDataFoundException 
 	 */
 	public static void main(String[] args) throws IOException {
 		// String url =
@@ -44,10 +46,15 @@ public class LocalExtractionTest {
 			input = input.replaceAll("(?i)<br[^>]*>", Person.BR_TAG);
 			// System.out.println(input);
 			Person newPerson = new Person();
-			//newPerson.tryExtract(input, "http://example.com");
-			newPerson.setUrl(file.getAbsolutePath());
-			PersonDAO.savePerson(newPerson);
-			persons.add(newPerson);
+			try {
+				newPerson.tryExtract(input, "http://example.com", new NamedEntityChecker());
+				newPerson.setUrl(file.getAbsolutePath());
+//			PersonDAO.savePerson(newPerson);
+				persons.add(newPerson);
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				System.err.println(e.getMessage());
+			}
 		}
 		
 		int cPerson = 0;
@@ -78,8 +85,9 @@ public class LocalExtractionTest {
 		}
 		
 		System.out.println("Some stats:");
-		System.out.println("Total pages: " + persons.size());
-		System.out.println("Found persons: " + (double) cPerson/persons.size());
+		System.out.println("Total pages: " + files.size());
+		System.out.println("Found persons-%: " + (double) cPerson/persons.size());
+		System.out.println("Extracted information (% of total persons)");
 		System.out.println("First names: " + (double) cFN/persons.size());
 		System.out.println("Last names: " + (double) cLN/persons.size());
 		System.out.println("Titles: " + (double) cTitle/persons.size());

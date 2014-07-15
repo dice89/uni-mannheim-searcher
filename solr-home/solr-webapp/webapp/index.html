@@ -45,7 +45,7 @@
 
     <div class="jumbotron">
       <h1>Uni Mannheim People Search</h1>
-      <p class="lead">Finding contact details with ease. Also supports backward search. </br>Give it a try and let us know what you think!</p>
+      <p class="lead">Finding contact details with ease. Supports backward and wildcard search. </br>Give it a try and let us know what you think!</p>
 
       <div class="container">
         <div class="row">    
@@ -80,6 +80,41 @@
 
     <div id="results" class="row marketing">
     </div>
+
+    <div id="feedback" style="display: none;">
+      <div class="row search-result">
+        <div class="col-xs-12 col-sm-12 col-md-12">
+          <div class="well">
+            <div class="row">
+              <div class="col-md-offset-2 col-sm-12 col-md-10">
+                <h3>How did you like the results? <a href="https://docs.google.com/forms/d/1lU5bZ6kt9P5dGZJLJ26Vtce6LFu8Ui_qFWjXIMJ9ytc/viewform" target="_blank">Help us with your feedback!</a></h3>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Large feedback modal -->
+      <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+          <div class="modal-content">
+          <div class="modal-header">
+
+             <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+              <h4 class="modal-title" id="myModalLabel">Feedback</h4>
+            </div>
+            <div class="modal-body">
+              <iframe width="100%" src="https://docs.google.com/forms/d/1lU5bZ6kt9P5dGZJLJ26Vtce6LFu8Ui_qFWjXIMJ9ytc/viewform"></iframe>
+            </div>
+            <div class="modal-footer">
+            <a class="btn btn-default" href="https://docs.google.com/forms/d/1lU5bZ6kt9P5dGZJLJ26Vtce6LFu8Ui_qFWjXIMJ9ytc/viewform">Open in extra tab</a>
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
 
 
     <script id="person-template" type="text/x-handlebars-template">
@@ -123,9 +158,8 @@
     <div id="footer">
       <div class="container">
         <ul class="nav nav-pills">
-          <li><a href="#">Home</a></li>
-          <li><a href="#">Contact</a></li>
-          <li><a href="#">About</a></li>
+          <li><a href="/solr/index.html">Home</a></li>
+          <li><a href="/solr/about.html">About</a></li>
         </ul>
       </div>
     </div>
@@ -175,6 +209,7 @@
             var persons = data.response;
             // alert(persons.docs.length);
             $('#results').append(template(persons));
+            $("#feedback").show();
           },
         error: function(xhr, textStatus, err) { //odstampaj textStatus, err jbt
             // alert('ne radi');

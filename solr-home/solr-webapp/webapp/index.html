@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<!-- saved from url=(0050)http://getbootstrap.com/examples/jumbotron-narrow/ -->
 <html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -33,15 +32,6 @@
   <body>
 
     <div class="container">
-
-<!--       <div class="header">
-      <ul class="nav nav-pills pull-right">
-        <li class="active"><a href="http://getbootstrap.com/examples/jumbotron-narrow/#">Home</a></li>
-        <li><a href="http://getbootstrap.com/examples/jumbotron-narrow/#">About</a></li>
-        <li><a href="http://getbootstrap.com/examples/jumbotron-narrow/#">Contact</a></li>
-      </ul>
-      <h3 class="text-muted">Uni Mannheim People Search</h3>
-    </div> -->
 
     <div class="jumbotron">
       <h1>Uni Mannheim People Search</h1>
@@ -199,7 +189,7 @@
 
         //Do backend call
         $.ajax({                    
-          url: 'http://localhost:8983/solr/collection1/select/?indent=on&wt=json'+query,
+          url: '/solr/collection1/select/?indent=on&wt=json'+query,
           dataType: 'json',
           cache: false,
           async: true,

@@ -4,6 +4,22 @@ LIMIT 0, 1000
 
 -- Date: 2014-07-12 13:43
 */
+CREATE TABLE `Person` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `email` varchar(255) DEFAULT NULL,
+  `fieldsNotNull` int(11) NOT NULL,
+  `firstNames` varchar(255) DEFAULT NULL,
+  `imageUrl` longtext,
+  `label` varchar(255) DEFAULT NULL,
+  `lastName` varchar(255) DEFAULT NULL,
+  `location_room` varchar(255) DEFAULT NULL,
+  `location_street` varchar(255) DEFAULT NULL,
+  `location_zip` varchar(255) DEFAULT NULL,
+  `phoneNumber` varchar(255) DEFAULT NULL,
+  `titles` varchar(255) DEFAULT NULL,
+  `url` longtext,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=631 DEFAULT CHARSET=latin1;
 INSERT INTO `Person` (`id`,`email`,`fieldsNotNull`,`firstNames`,`imageUrl`,`label`,`lastName`,`location_room`,`location_street`,`location_zip`,`phoneNumber`,`titles`,`url`) VALUES (1,'nadarevic@psychologie.uni-mannheim.de',15,'Lena',NULL,'Dr. Lena Nadarevic','Nadarevic','room 207','L9, 7',NULL,'+49 (0)621 181-3463','Dr. ','http://psycho3.uni-mannheim.de/ionas/Psychologie/Psycho3/Home/Staff/Dr.%20Lena%20Nadarevic/');
 INSERT INTO `Person` (`id`,`email`,`fieldsNotNull`,`firstNames`,`imageUrl`,`label`,`lastName`,`location_room`,`location_street`,`location_zip`,`phoneNumber`,`titles`,`url`) VALUES (2,'brandt@psychologie.uni-mannheim.de',15,'Martin',NULL,'Dr. Martin Brandt','Brandt','Room EO 239','O 23',NULL,'+49 (0) 621 181 2147','Dr. ','http://psycho3.uni-mannheim.de/ionas/Psychologie/Psycho3/Home/Staff/Dr.%20Martin%20Brandt/');
 INSERT INTO `Person` (`id`,`email`,`fieldsNotNull`,`firstNames`,`imageUrl`,`label`,`lastName`,`location_room`,`location_street`,`location_zip`,`phoneNumber`,`titles`,`url`) VALUES (3,'auerswald@psychologie.uni-mannheim.de',15,'Max',NULL,'Dipl.-Psych. Max Auerswald','Auerswald','Room 205','L9, 7',NULL,'+49 (0)621 181 2130','Dipl.-Psych. ','http://psycho3.uni-mannheim.de/ionas/Psychologie/Psycho3/Home/Staff/Dipl.-Psych.%20Max%20Auerswald/');

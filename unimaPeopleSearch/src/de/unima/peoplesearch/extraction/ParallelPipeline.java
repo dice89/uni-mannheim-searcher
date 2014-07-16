@@ -55,7 +55,7 @@ public class ParallelPipeline extends Pipeline {
 	}
 	
 	public static void main(String args[]){
-		ParallelPipeline pp = new ParallelPipeline(Integer.MAX_VALUE, 50);
+		ParallelPipeline pp = new ParallelPipeline(Integer.MAX_VALUE, 100);
 		try {
 			pp.startExtraction();
 		} catch (IOException e) {

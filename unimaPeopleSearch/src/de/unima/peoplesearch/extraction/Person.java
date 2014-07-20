@@ -22,6 +22,7 @@ import org.jsoup.select.Elements;
 import org.jsoup.safety.Cleaner;
 import org.jsoup.safety.Whitelist;
 
+import de.unima.peoplesearch.extraction.qualitychecks.AbstractNamedEntityChecker;
 import de.unima.peoplesearch.extraction.qualitychecks.NamedEntityChecker;
 
 /**
@@ -103,7 +104,7 @@ public class Person {
 
 
 
-	public void tryExtract(String input, String baseUrl, NamedEntityChecker neChecker) throws NoPersonDataFoundException {
+	public void tryExtract(String input, String baseUrl, AbstractNamedEntityChecker neChecker) throws NoPersonDataFoundException {
 		input = input.replace("ä","a").replace("ü", "u").replace("ö", "o");
 		Document doc = Jsoup.parse(input, baseUrl);
 
@@ -133,15 +134,14 @@ public class Person {
 				this.testForName(text);
 				if (this.label.length() < 1)
 					this.label = text.trim();
-				
-				break;
+		
 			}
 		}
 		if(neFoundCount == 0){
 			throw new NoPersonDataFoundException();
 		}
 		
-		
+		System.out.println("Person Candidate");
 		// Look for contact details in all elements
 		elements = content.select("*");
 		for (Element element : elements) {

@@ -7,18 +7,38 @@ import java.util.List;
 import org.jsoup.Jsoup;
 
 import de.unima.peoplesearch.database.PersonDAO;
+import de.unima.peoplesearch.extraction.qualitychecks.AbstractNamedEntityChecker;
 import de.unima.peoplesearch.extraction.qualitychecks.NamedEntityChecker;
+import de.unima.peoplesearch.extraction.qualitychecks.NamedEntityCheckerCombiner;
+import de.unima.peoplesearch.extraction.qualitychecks.NamedEntityCheckerGerman;
 
 public class Pipeline {
+	
+	public static final double THRESHOLD = 0.33;
 	//TODO implement clean pipeline and remove ugly coding
-	private NamedEntityChecker neChecker = new NamedEntityChecker();
+	private AbstractNamedEntityChecker neChecker;
+	
+	private int getRequestTimeOut;
 	protected int maxLinks;
 	protected List<Person> persons;
 	protected List<String> links;
 	
-	public Pipeline(int maxLinks){
+	public Pipeline(int maxLinks, int NECHECKERTYPE, double threshold, int getRequestTimeOut){
+		//Determine which type
+		switch (NECHECKERTYPE) {
+		case 0:
+			this.neChecker = new NamedEntityCheckerGerman(threshold);
+			break;
+		case 1:
+			this.neChecker = new NamedEntityChecker(threshold);
+			break;
+		case 2:
+			this.neChecker = new NamedEntityCheckerCombiner(threshold);
+			break;
+		}
 		persons = new ArrayList<Person>();
 		this.maxLinks = maxLinks;
+		this.getRequestTimeOut = getRequestTimeOut;
 	}
 	
 
@@ -140,8 +160,8 @@ public class Pipeline {
 		if(p==null){
 			return false;
 		}else{
-			
-			return CandidatePruner.checkCandidate(p);
+			return true;
+			//return CandidatePruner.checkCandidate(p);
 		}
 	}
 	
@@ -245,7 +265,7 @@ public class Pipeline {
 	}
 	
 	public static void main (String args[]){
-		Pipeline p = new Pipeline(10000);
+		Pipeline p = new Pipeline(1000,2,0.33,100);
 		
 		try {
 			p.startExtraction();

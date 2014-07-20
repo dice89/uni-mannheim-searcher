@@ -47,7 +47,7 @@ public class LocalExtractionTest {
 			// System.out.println(input);
 			Person newPerson = new Person();
 			try {
-				newPerson.tryExtract(input, "http://example.com", new NamedEntityChecker());
+				newPerson.tryExtract(input, "http://example.com", new NamedEntityChecker(0.33));
 				newPerson.setUrl(file.getAbsolutePath());
 //			PersonDAO.savePerson(newPerson);
 				

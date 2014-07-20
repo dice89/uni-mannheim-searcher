@@ -14,8 +14,8 @@ public class ParallelPipeline extends Pipeline {
 	 * @param maxLinks
 	 * @param numberOfWorker
 	 */
-	public ParallelPipeline(int maxLinks, int numberOfWorker) {
-		super(maxLinks);
+	public ParallelPipeline(int maxLinks, int numberOfWorker, int NECHECKERTYPE,double threshold, int getRequestTimeOut) {
+		super(maxLinks, NECHECKERTYPE, threshold, getRequestTimeOut);
 		this.numberOfWorker = numberOfWorker;
 	}
 	
@@ -46,8 +46,12 @@ public class ParallelPipeline extends Pipeline {
 			PersonExtractionTask pet = new PersonExtractionTask(this);
 			pet.start();
 		}
+		boolean test1= false;
 		//busy waiting for all workers
 		while(calledBackWorkers < numberOfWorker){
+			if(test1 == true){
+				continue;
+			}
 			Thread.sleep(1000);
 			System.out.println(curr_link);
 		}
@@ -56,7 +60,7 @@ public class ParallelPipeline extends Pipeline {
 	
 	public static void main(String args[]){
 
-		ParallelPipeline pp = new ParallelPipeline(Integer.MAX_VALUE, 33);
+		ParallelPipeline pp = new ParallelPipeline(Integer.MAX_VALUE, 5,0,0.33,1000);
 
 		try {
 			pp.startExtraction();

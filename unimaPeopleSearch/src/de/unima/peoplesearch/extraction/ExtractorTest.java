@@ -28,7 +28,7 @@ public class ExtractorTest {
 		
 		CandidatePruner cp = new CandidatePruner();
 		
-		NamedEntityChecker neChecker = new NamedEntityChecker();
+		NamedEntityChecker neChecker = new NamedEntityChecker(0.33);
 		// String url =
 		// "http://dws.informatik.uni-mannheim.de/en/people/professors/prof-dr-simone-paolo-ponzetto/";
 		// Document doc = Jsoup.parse(new URL(url).openStream(), "ISO-8859-1",

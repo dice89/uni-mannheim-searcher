@@ -120,7 +120,7 @@ A well-known library for Natural Lange Processing (NLP) tasks is Stanford Core N
 
 In the evaluation Chapter we will investigate how this two different libraries performed. 
 
-Nevertheless for each for both approaches the NER Recognition usage is the same. As illustrated above we exploit the html structure of a webpage as doing so in this case. We iterate over the DOM Structure and only consider headers. If in one heading a NE of type Person was found, the algorithm tries to extract contact information, otherwise it continues.
+Consequently we used for our purposes both NER Components in combination. As illustrated above we exploit the html structure of a webpage. Therefore we iterate over the DOM Structure and only consider header elements. If in one heading, one of the NER Components finds a NE of type Person, the algorithm tries to extract contact information in the corresponding parts of the html documents, otherwise it continues.
 
 The result of this step of our pipeline is a set of person entity candidates that still can contain corrupt or duplicate data. Therefore the next step is to clean the set.
 \subsection{Candidate Pruning}
@@ -147,7 +147,9 @@ An ideal system to fulfill those user requirements is Apache Solr, which was dev
 
 The entities that were extracted are stored in a MySQL database with the representation as shown in Figure \ref{fig:person}.  In order to allow Solr to access the database we needed to change some of the configuration parameters. First of all necessary java classed needed to be included to allow Solr to establish a JDBC connection to the database the entities reside in. Now we enabled the creation of inverted indices both, for field queries and free text queries considering all fields when the user enters his or her query. 
 
-This query interface is in Apache Solr by default exposed via webservices, which  we used to communicate to our custom build User Interface which will be described in the following section.
+This query interface is in Apache Solr by default exposed via webservices, which we used to communicate to our custom build User Interface which will be described in the following section.
+\subsection{User Interface}
+TODO Michi
 \section{Project Evaluation}
 Maxim
 \section{Summary}

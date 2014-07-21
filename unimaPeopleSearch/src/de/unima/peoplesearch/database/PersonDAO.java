@@ -16,6 +16,7 @@ public class PersonDAO {
 		
 		try{
 			session.save(p);
+	
 			session.getTransaction().commit();
 		}catch (Exception e){
 			System.out.println("not saved");
@@ -34,5 +35,16 @@ public class PersonDAO {
 
 		HibernateUtil.closeSession(session);
 		return results;
+	}
+	
+	public static List<Person> getAllPeople(){
+		Session session = HibernateUtil.getSession();
+		Criteria cr = session.createCriteria(Person.class);
+		cr.add(Restrictions.isNotNull("firstNames"));
+
+		List<Person> results = (List<Person>) cr.list();
+		HibernateUtil.closeSession(session);
+		return results;
+
 	}
 }
